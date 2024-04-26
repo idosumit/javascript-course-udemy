@@ -34,3 +34,16 @@ javascriptIsFun = 'YES!'; // assigning a new value to an existing variable IS po
 console.log(typeof javascriptIsFun); // console gives 'string'
 
 console.log('--------------------');
+
+// for undefined type
+let year;
+console.log(year);
+console.log(typeof year);
+
+year = 1991;
+console.log(typeof year);
+
+console.log('--------------------');
+
+//An error/bug that exists with typeof
+console.log(typeof null); // we get "object". This makes no sense.
