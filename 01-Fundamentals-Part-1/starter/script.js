@@ -87,8 +87,6 @@ console.log(ageSarah >= 18); // true
 const isFullAge = ageSarah >= 18;
 
 console.log(now - 1991 > now - 2018);
-*/
-
 
 //Operator Precedence
 const now = 2037;
@@ -106,3 +104,27 @@ console.log(x, y); // 10 10
 
 const averageAge = (ageJonas + ageSarah) / 2;
 console.log(ageJonas, ageSarah, averageAge); // 46 19 32.5
+*/
+
+const firstName = 'Charles';
+const job = 'teacher';
+const birthYear = 1991;
+const year = 2037;
+
+const charles = "I'm " + firstName + ', a ' + (year - birthYear) + ' year old ' + job + '.'; // ineffective
+console.log(charles);
+
+// Template Literals
+const charlesNew = `I'm ${firstName}, a ${year - birthYear} year old ${job}.`;
+// this is much easier, `` are backticks
+console.log(charlesNew);
+
+console.log(`This is just a regular string in backticks`);
+
+console.log('String with \n\
+multiple \n\
+lines.')
+
+console.log(`String with
+multiple
+lines but with backticks.`);
