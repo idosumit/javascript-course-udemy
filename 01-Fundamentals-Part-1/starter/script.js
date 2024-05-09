@@ -8,7 +8,7 @@ console.log(23);
 
 let firstName = "Kylian";
 console.log(firstName);
-*/
+
 
 let javascriptIsFun = true;
 console.log(javascriptIsFun);
@@ -19,7 +19,7 @@ console.log(typeof 23);
 console.log(typeof 'Jonas');
 console.log(typeof Jonas);
 
-/* console gives:
+console gives:
 true
 boolean
 boolean
@@ -171,7 +171,6 @@ console.log('23' * '2'); // outputs 46 | these got converted to strings
 let n = '1' + 1;
 n = n - 1;
 console.log(n); // outputs 10
-*/
 
 // Truthy and Falsy Values
 // 5 falsy values: 0, '', undefined, null, NaN
@@ -197,3 +196,31 @@ if (height) {
     console.log('Height is undefined.');
 }
 // Output: Height is undefined. | This is because height is undefined, so if(height) becomes false.
+*/
+
+// -------- EQUALITY OPERATORS -----------//
+const age = '18';
+if (age === 18) console.log(`You just became an adult.`);
+if (age == 18) console.log(`You just became an adult (with a loose operator)`);
+// IMPORTANT: `==` does type coercion, meaning ‘18’ and 18 are loosely equal.
+// `===` does NOT do type coercion; it becomes true only if the left and right are exactly the same.
+
+// Setting a prompt popup
+const favorite = prompt("What's your favorite number?"); // let's assume I entered 23
+console.log(favorite); // outputs 23
+console.log(typeof favorite); // outputs string (yup, not a number)
+
+if (favorite == 23) {
+    console.log(`Cool! 23 is an amazing number!`);
+}
+
+// It's better to convert the string to a Number. Let's not use ==.
+const favoUrite = Number(prompt("What's your favorite number?")); // let's assume I entered 23
+console.log(favoUrite); // outputs 23 (not a string but a number this time)
+
+if (favoUrite === 23) { // === this time
+    console.log(`Cool! 23 is an amazing number!`);
+}
+
+// for not equal operators
+if (favoUrite !== 23) console.log('Why not 23?'); // !== is the strict version.
