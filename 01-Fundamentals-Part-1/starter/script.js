@@ -196,7 +196,6 @@ if (height) {
     console.log('Height is undefined.');
 }
 // Output: Height is undefined. | This is because height is undefined, so if(height) becomes false.
-*/
 
 // -------- EQUALITY OPERATORS -----------//
 const age = '18';
@@ -224,3 +223,20 @@ if (favoUrite === 23) { // === this time
 
 // for not equal operators
 if (favoUrite !== 23) console.log('Why not 23?'); // !== is the strict version.
+*/
+
+// --------------------------------- LOGICAL OPERATORS ------------------------------------//
+const hasDriversLicense = true; //A
+const hasGoodVision = false; //B
+console.log(hasDriversLicense && hasGoodVision);
+console.log(hasDriversLicense || hasGoodVision);
+console.log(!hasDriversLicense);
+
+const isTired = true; //C
+console.log(hasDriversLicense || hasGoodVision || isTired);
+
+if (hasDriversLicense && hasGoodVision && !isTired) {
+    console.log(`Sarah is able to drive!`);
+} else {
+    console.log(`Someone else should drive!`);
+}
