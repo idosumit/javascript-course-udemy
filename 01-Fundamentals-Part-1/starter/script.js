@@ -26,7 +26,7 @@ boolean
 number
 string
 undefined
-*/
+
 
 console.log('--------------------');
 // -----------------------
@@ -47,3 +47,13 @@ console.log('--------------------');
 
 //An error/bug that exists with typeof
 console.log(typeof null); // we get "object". This makes no sense.
+*/
+
+let age = 30;
+age = 31;
+
+const birthYear = 1991;
+// birthYear = 1990;
+
+var job = 'programmer';
+job = 'teacher'
