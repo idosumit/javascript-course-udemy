@@ -56,7 +56,6 @@ const birthYear = 1991;
 
 var job = 'programmer';
 job = 'teacher';
-*/
 
 //Math operators
 const now = 2037;
@@ -88,3 +87,22 @@ console.log(ageSarah >= 18); // true
 const isFullAge = ageSarah >= 18;
 
 console.log(now - 1991 > now - 2018);
+*/
+
+
+//Operator Precedence
+const now = 2037;
+const ageJonas = now - 1991;
+const ageSarah = now - 2018;
+
+console.log(now - 1991 > now - 2018); // why does this work? how does js know to do - first before > ?
+// This is because in the js operator precedence, ' > ' is below '-'.
+// Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_precedence
+
+let x, y;
+
+x = y = 25 - 10 - 5; // x = y = 10
+console.log(x, y); // 10 10
+
+const averageAge = (ageJonas + ageSarah) / 2;
+console.log(ageJonas, ageSarah, averageAge); // 46 19 32.5
