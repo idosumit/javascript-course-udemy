@@ -128,7 +128,6 @@ lines.')
 console.log(`String with
 multiple
 lines but with backticks.`);
-*/
 
 // if / else control structure
 const age = 15;
@@ -151,3 +150,25 @@ if (bornYear < 2000) {
 }
 
 console.log(century); // 20
+*/
+
+// Type Conversion and Coercion
+// Type Conversion
+const inputYear = '1991';
+console.log(Number(inputYear), inputYear); // output: 1991 '1991' | we can convert strings to numbers this way
+console.log(Number(inputYear) + 18); // 2009
+
+console.log(Number('Charles')); // outputs NaN
+
+console.log(String(23), 23);
+// Number to string | Outputs 23 23 (the second 23 is in purple, meaning it's a number)
+
+// Type Coercion
+console.log('I am ' + 23 + ' years old') // coercion has been triggerd to make a string
+console.log('23' - '10' - 3); // outputs 10 | Strings got converted to numbers
+console.log('23' + '10' + 3); // outputs 23103 | 3 got converted to a string
+console.log('23' * '2'); // outputs 46 | these got converted to strings
+
+let n = '1' + 1;
+n = n - 1;
+console.log(n); // outputs 10
