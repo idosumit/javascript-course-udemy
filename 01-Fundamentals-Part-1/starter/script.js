@@ -150,7 +150,6 @@ if (bornYear < 2000) {
 }
 
 console.log(century); // 20
-*/
 
 // Type Conversion and Coercion
 // Type Conversion
@@ -172,3 +171,29 @@ console.log('23' * '2'); // outputs 46 | these got converted to strings
 let n = '1' + 1;
 n = n - 1;
 console.log(n); // outputs 10
+*/
+
+// Truthy and Falsy Values
+// 5 falsy values: 0, '', undefined, null, NaN
+
+console.log(Boolean(0)); // false
+console.log(Boolean(undefined)); // false
+console.log(Boolean('Charles')); // true
+console.log(Boolean({})); // true
+console.log(Boolean('')); // false
+
+const money = 0;
+if (money) {
+    console.log("Don't spend it all!");
+} else {
+    console.log('You should get a job');
+}
+// Output: You should get a job | 0 triggers a falsy value, so if(money) becomes false so the else statement gets done.
+
+let height;
+if (height) {
+    console.log('Yay! Height is defined!');
+} else {
+    console.log('Height is undefined.');
+}
+// Output: Height is undefined. | This is because height is undefined, so if(height) becomes false.
