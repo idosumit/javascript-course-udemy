@@ -104,7 +104,7 @@ console.log(x, y); // 10 10
 
 const averageAge = (ageJonas + ageSarah) / 2;
 console.log(ageJonas, ageSarah, averageAge); // 46 19 32.5
-*/
+
 
 const firstName = 'Charles';
 const job = 'teacher';
@@ -128,3 +128,26 @@ lines.')
 console.log(`String with
 multiple
 lines but with backticks.`);
+*/
+
+// if / else control structure
+const age = 15;
+
+if (age >= 18) {
+    console.log(`Sarah can start driving license 🚗`);
+} else {
+    const yearsLeft = 18 - age;
+    console.log(`Sarah is too young, ${yearsLeft} years left.`)
+}
+
+const bornYear = 1991;
+
+let century;
+
+if (bornYear < 2000) {
+    century = 20;
+} else {
+    century = 21;
+}
+
+console.log(century); // 20
