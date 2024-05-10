@@ -12,7 +12,7 @@ if (hasDriversLicense) console.log('I can drive.');
 
 // const interface = 'Audio'; // it's a strict mode reserved word, so there will be an error
 // const private = 534; // similar error
-*/
+
 
 // ------------------------------------- FUNCTIONS --------------------------------------- //
 function logger() { // abstracting the function
@@ -34,3 +34,24 @@ console.log(appleJuice);
 
 //or do it directly:
 console.log(fruitProcessor(7, 19));
+
+*/
+
+// --------------------------------- FUNCTION DECLARATIONS V EXPRESSIONS ----------------------------------- //
+// function declaration:
+function calcAge1(birthYear) {
+    return 2037 - birthYear;
+}
+
+const age1 = calcAge1(1991);
+console.log(age1);
+
+// function expression:
+const calcAge2 = function (birthYear) {
+    return 2037 - birthYear;
+}
+const age2 = calcAge2(1991);
+console.log(age1, age2);
+
+// Main difference: function declaration can be called before defining that function (i.e., hoisting possible)
+// Main difference: function expression cannot be called before defining it (JUST LIKE IN C) (can't be hoisted)
