@@ -179,7 +179,37 @@ const test_name = 'Steven';
 if (friends.includes(test_name)) {
     console.log(`You have a friend called ${test_name}.`)
 }
-*/
 
 // --------------------------------- CODING EXERCISE 6: ARRAYS ----------------------------------- //
 // My solution: 02-Fundamentals-Part-2/codingexercise6 (arrays).js
+*/
+
+
+// --------------------------------- OBJECTS: FOUNDATIONAL INTRODUCTION ----------------------------------- //
+// An array looks something like:
+const charlesArray = [
+    'Charles',
+    'Barkley',
+    2037 - 1991,
+    'basketball player',
+    ['Ernie', 'Kenny the Jet', 'Shaq']
+];
+
+// Array has a limitation of only being able to define/reference its elements with the order numbers.
+// That's where object comes into play.
+
+// An object in this case would be like:
+const charlesObject = { // this curly bracket is a different kind compared to a normal one
+    firstName: 'Charles',
+    lastName: 'Barkley',
+    age: 2037 - 1991,
+    job: 'basketball player',
+    friends: ['Ernie', 'Kenny the Jet', 'Shaq']
+};
+
+/*
+Objects have properties, just like how arrays have elements.
+Big difference between `objects` and `arrays`:
+-------> Objects: Order does NOT matter.
+-------> Arrays: Order is quintessential.
+*/
