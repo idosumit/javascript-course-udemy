@@ -105,8 +105,6 @@ console.log(yearsUntilRetirement(1985, 'Ernest'));
 
 // --------------------------------- CODING EXERCISE 5 ----------------------------------- //
 // My solution: 02-Fundamentals-Part-2/codingexercise5 (functions).js
-*/
-
 
 // --------------------------------- ARRAYS - FIRST DATA STRUCTURES ----------------------------------- //
 
@@ -142,3 +140,43 @@ const 年 = [1990, 1967, 2002, 2010, 2018];
 
 const ages = [calcAge(年[0]), calcAge(年[1]), calcAge(年[年.length - 1])];
 console.log(ages);
+*/
+
+// --------------------------------- METHODS: BASIC ARRAY OPERATIONS ----------------------------------- //
+const friends = ['Michael', 'Steven', 'Peter'];
+
+// adding element to the array's tail: .push()
+const newLength = friends.push('Jay');
+console.log(friends); // Output: (4) ['Michael', 'Steven', 'Peter', 'Jay']
+console.log(newLength); // push by itself shows the length of the array in the console
+
+// adding elements to the array's beginning: .unshift()
+friends.unshift('John');
+console.log(friends); // Output: (5) ['John', 'Michael', 'Steven', 'Peter', 'Jay']
+
+
+// removing elements .pop()
+const popped = friends.pop(); // removes the last element
+console.log(popped); // pop by itself shows the element that has been removed (NOT the length)
+console.log(friends); // Output: (4) ['John', 'Michael', 'Steven', 'Peter']
+
+//removing the first element: .shift()
+friends.shift();
+console.log(friends); // Output: (3) ['Michael', 'Steven', 'Peter']
+
+// to know the index of a particular element in an array: .indexof()
+console.log(friends.indexOf('Steven')); // Output: 1
+console.log(friends.indexOf('YoMama')); // Output: -1 (it doesn't exist in that array)
+
+// to know just whether the element is in the array or not: .includes()
+console.log(friends.includes('Steven')); // Output: true
+console.log(friends.includes('YoMama')); // Output: false
+//.includes does NOT do type coercion. Only strict equality. So a "23" and 23 will give us 'false'.
+
+// Commonly used case:
+
+console.log(friends); // Output: (3) ['Michael', 'Steven', 'Peter']
+const test_name = 'Steven';
+if (friends.includes(test_name)) {
+    console.log(`You have a friend called ${test_name}.`)
+}
