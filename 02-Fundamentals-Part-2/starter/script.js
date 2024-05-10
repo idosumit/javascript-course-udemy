@@ -103,7 +103,7 @@ const yearsUntilRetirement = function (birthYear, firstName) {
 console.log(yearsUntilRetirement(1991, 'Charles'));
 console.log(yearsUntilRetirement(1985, 'Ernest'));
 
-// --------------------------------- CODING EXERCISE 5 ----------------------------------- //
+// --------------------------------- CODING EXERCISE 5: FUNCTIONS ----------------------------------- //
 // My solution: 02-Fundamentals-Part-2/codingexercise5 (functions).js
 
 // --------------------------------- ARRAYS - FIRST DATA STRUCTURES ----------------------------------- //
@@ -140,7 +140,6 @@ const 年 = [1990, 1967, 2002, 2010, 2018];
 
 const ages = [calcAge(年[0]), calcAge(年[1]), calcAge(年[年.length - 1])];
 console.log(ages);
-*/
 
 // --------------------------------- METHODS: BASIC ARRAY OPERATIONS ----------------------------------- //
 const friends = ['Michael', 'Steven', 'Peter'];
@@ -180,3 +179,7 @@ const test_name = 'Steven';
 if (friends.includes(test_name)) {
     console.log(`You have a friend called ${test_name}.`)
 }
+*/
+
+// --------------------------------- CODING EXERCISE 6: ARRAYS ----------------------------------- //
+// My solution: 02-Fundamentals-Part-2/codingexercise6 (arrays).js
