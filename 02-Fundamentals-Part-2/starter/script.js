@@ -103,7 +103,42 @@ const yearsUntilRetirement = function (birthYear, firstName) {
 console.log(yearsUntilRetirement(1991, 'Charles'));
 console.log(yearsUntilRetirement(1985, 'Ernest'));
 
-*/
-
 // --------------------------------- CODING EXERCISE 5 ----------------------------------- //
 // My solution: 02-Fundamentals-Part-2/codingexercise5 (functions).js
+*/
+
+
+// --------------------------------- ARRAYS - FIRST DATA STRUCTURES ----------------------------------- //
+
+// Instead of:
+const friend1 = 'Michael';
+const friend2 = 'Steven';
+const friend3 = 'Peter';
+
+//Rather do:
+const friends = ['Michael', 'Steven', 'Peter'];
+console.log(friends);
+
+const years = new Array(1991, 1984, 2008, 2020);
+console.log(years);
+
+console.log(friends[2]);
+console.log(friends.length);
+console.log(friends[friends.length - 1]);
+
+friends[2] = 'Jay';
+console.log(friends);
+
+// array with all kinds of info
+const firstName = 'Charles';
+const charles = [firstName, 'Barkley', 2037 - 1991, 'teacher', friends];
+console.log(charles);
+
+// Mini-exercise:
+const calcAge = function (birthYear) {
+    return 2037 - birthYear;
+}
+const 年 = [1990, 1967, 2002, 2010, 2018];
+
+const ages = [calcAge(年[0]), calcAge(年[1]), calcAge(年[年.length - 1])];
+console.log(ages);
