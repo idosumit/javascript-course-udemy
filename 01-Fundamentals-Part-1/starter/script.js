@@ -318,3 +318,6 @@ console.log(`I like to drink ${age >= 18 ? 'wine' : 'water'}`);
 // This works. Why? Because `age >= 18 ? 'wine' : 'water'` in this case is an EXPRESSION, not a STATEMENT.
 // On the other hand, the same `if` `else` statement would not have worked, because that's a STATEMENT.
 // STATEMENTS cannot go inside template literals `${}`.
+
+// -------------------------------- QUIZ: CONDITIONAL (TERNARY) OPERATOR -----------------------------------//
+// 01-Fundamentals-Part-1/challenge4 (ternary).js
