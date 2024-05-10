@@ -35,8 +35,6 @@ console.log(appleJuice);
 //or do it directly:
 console.log(fruitProcessor(7, 19));
 
-*/
-
 // --------------------------------- FUNCTION DECLARATIONS V EXPRESSIONS ----------------------------------- //
 // function declaration:
 function calcAge1(birthYear) {
@@ -55,3 +53,20 @@ console.log(age1, age2);
 
 // Main difference: function declaration can be called before defining that function (i.e., hoisting possible)
 // Main difference: function expression cannot be called before defining it (JUST LIKE IN C) (can't be hoisted)
+*/
+
+
+// --------------------------------- ARROW FUNCTIONS ----------------------------------- //
+// Arrow function
+const calcAge3 = birthYear => 2037 - birthYear; // RETURN HAPPENS IMPLICITLY; we don't need to return the value since it's a one-liner
+const age3 = calcAge3(1991);
+console.log(age3); // 46
+
+// More complicated arrow function with new parameters (birthYear, firstName):
+const yearsUntilRetirement = (birthYear, firstName) => {
+    const age = 2037 - birthYear;
+    const retirement = 65 - age;
+    return `${firstName} retires in ${retirement} years.`;
+}
+
+console.log(yearsUntilRetirement(1991, 'Charles'));
