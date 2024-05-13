@@ -212,8 +212,6 @@ const charlesObject = { // this curly bracket is a different kind compared to a 
 // -------> Objects: Order does NOT matter.
 // -------> Arrays: Order is quintessential.
 
-*/
-
 // --------------------------------- DOT v BRACKET NOTATION ----------------------------------- //
 const charlesObject = {
     firstName: 'Charles',
@@ -249,3 +247,16 @@ if (charlesObject[interestedIn]) {
 charlesObject.location = 'USA';
 charlesObject['twitter'] = 'krispykreme';
 console.log(charlesObject);
+
+*/
+
+// --------------------------------- DOT v BRACKET NOTATION CHALLENGE ----------------------------------- //
+// To produce: "Charles has 3 friends, and his best friend is called Ernie."
+// TASK: Use both dot and bracket notations.
+
+const charlesZeroRings = {
+    name: 'Charles',
+    friends: ['Ernie', 'Kenny the Jet', 'Shaq']
+};
+
+console.log(`${charlesZeroRings.name} has ${charlesZeroRings.friends.length} friends, and his best friend is called ${charlesZeroRings.friends[0]}.`)
