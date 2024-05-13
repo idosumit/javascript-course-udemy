@@ -299,8 +299,6 @@ console.log(charlesZeroRings.calcAgee());
 // {firstName: 'Charles', lastName: 'Barkley', birthYear: 1991, job: 'basketball player', friends: Array(3), …}
 // 46
 
-*/
-
 // YET ANOTHER VARIATION:
 const charlesZeroRings = {
     firstName: 'Charles',
@@ -319,3 +317,29 @@ const charlesZeroRings = {
 console.log(charlesZeroRings.calcAge()); // this needs to be done once otherwise the below logs won't work
 
 console.log(charlesZeroRings.age);
+*/
+
+// --------------------------------- OBJECT METHOD CHALLENGE ----------------------------------- //
+// Challenge:
+// "Charles is a 46-year old basketball player, and he has a driver's license."
+// Have to write a string 'getSummary" and make it either "a driver's license" or "no driver's license."
+
+const charlesZeroRings = {
+    firstName: 'Charles',
+    lastName: 'Barkley',
+    birthYear: 1991,
+    job: 'basketball player',
+    friends: ['Ernie', 'Kenny the Jet', 'Shaq'],
+    hasDriversLicense: true,
+
+    calcAge: function () {
+        this.age = 2037 - this.birthYear;
+        return this.age;
+    },
+
+    getSummary: function () {
+        return `${this.firstName} is a ${this.calcAge()}-year old ${this.job}, and he has ${this.hasDriversLicense ? 'a' : 'no'} driver's license.`;
+    }
+};
+
+console.log(charlesZeroRings.getSummary());
