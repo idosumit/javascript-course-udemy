@@ -383,8 +383,6 @@ for (let i = 0; i < years.length; i++) {
     ages.push(2024 - years[i]);
 }
 console.log(ages); // Output: (4) [33, 17, 55, 4]
-*/
-
 
 // ------------------------- THE FOR LOOP: BREAKING, CONTINUING --------------------------- //
 const charlesZeroRings = [
@@ -420,4 +418,23 @@ for (let i = 0; i < charlesZeroRings.length; i++) {
     // --------BREAK WITH NUMBER--------
     // Charles string
     // Barkley string
+}
+*/
+
+
+// ------------------------- THE WHILE LOOP --------------------------- //
+
+let i = 0;
+while (i <= 10) {
+    console.log(`Lifting weights repetition ${i}`);
+    i++;
+}
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+console.log(dice);
+
+while (dice !== 6) {
+    console.log(`You rolled a ${dice}`);
+    dice = Math.trunc(Math.random() * 6) + 1;
+    if (dice === 6) console.log('Loop is about to end...')
 }
