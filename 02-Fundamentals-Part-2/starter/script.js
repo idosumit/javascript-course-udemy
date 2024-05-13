@@ -345,8 +345,6 @@ console.log(charlesZeroRings.getSummary());
 
 // --------------------------------- CODING EXERCISE 7 ----------------------------------- //
 // My solution: 02-Fundamentals-Part-2/codingexercise7 (objects).js
-*/
-
 
 // ------------------------- THE FOR LOOP: LOOPING ARRAYS, BREAKING, CONTINUING --------------------------- //
 for (let i = 0; i < 2; i++) {
@@ -385,3 +383,41 @@ for (let i = 0; i < years.length; i++) {
     ages.push(2024 - years[i]);
 }
 console.log(ages); // Output: (4) [33, 17, 55, 4]
+*/
+
+
+// ------------------------- THE FOR LOOP: BREAKING, CONTINUING --------------------------- //
+const charlesZeroRings = [
+    'Charles',
+    'Barkley',
+    2037 - 1991,
+    'basketball player',
+    ['Ernie', 'Kenny the Jet', 'Shaq'],
+    true
+];
+
+console.log('--------ONLY STRINGS--------')
+for (let i = 0; i < charlesZeroRings.length; i++) {
+    if (typeof charlesZeroRings[i] !== 'string') continue;
+    // meaning it'll skip the ith element if it's not a string; if the condition is true, the skipping happens.
+    // Can understand it more has a "SKIP". "continue" is a very bad choice of word for this lol (my opinion)
+
+    console.log(charlesZeroRings[i], typeof charlesZeroRings[i]);
+    // Output:
+    // --------ONLY STRINGS--------
+    // Charles string
+    // Barkley string
+    // basketball player string
+}
+
+console.log('--------BREAK WITH NUMBER--------')
+for (let i = 0; i < charlesZeroRings.length; i++) {
+    if (typeof charlesZeroRings[i] === 'number') break;
+    // meaning whenever the condition is satisfied, the whole loop is immediately terminated.
+
+    console.log(charlesZeroRings[i], typeof charlesZeroRings[i]);
+    // Output:
+    // --------BREAK WITH NUMBER--------
+    // Charles string
+    // Barkley string
+}
