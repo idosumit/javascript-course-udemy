@@ -182,7 +182,6 @@ if (friends.includes(test_name)) {
 
 // --------------------------------- CODING EXERCISE 6: ARRAYS ----------------------------------- //
 // My solution: 02-Fundamentals-Part-2/codingexercise6 (arrays).js
-*/
 
 
 // --------------------------------- OBJECTS: FOUNDATIONAL INTRODUCTION ----------------------------------- //
@@ -207,9 +206,46 @@ const charlesObject = { // this curly bracket is a different kind compared to a 
     friends: ['Ernie', 'Kenny the Jet', 'Shaq']
 };
 
-/*
-Objects have properties, just like how arrays have elements.
-Big difference between `objects` and `arrays`:
--------> Objects: Order does NOT matter.
--------> Arrays: Order is quintessential.
+
+// Objects have properties, just like how arrays have elements.
+// Big difference between `objects` and `arrays`:
+// -------> Objects: Order does NOT matter.
+// -------> Arrays: Order is quintessential.
+
 */
+
+// --------------------------------- DOT v BRACKET NOTATION ----------------------------------- //
+const charlesObject = {
+    firstName: 'Charles',
+    lastName: 'Barkley',
+    age: 2037 - 1991,
+    job: 'basketball player',
+    friends: ['Ernie', 'Kenny the Jet', 'Shaq']
+};
+
+console.log(charlesObject);
+
+// dot notation
+console.log(charlesObject.lastName);
+console.log(charlesObject['lastName']);
+
+// bracket notation
+const nameKey = 'Name';
+console.log(charlesObject['first' + nameKey]);
+console.log(charlesObject['last' + nameKey]);
+
+// another example when we don't know whether to use dot or bracket
+
+const interestedIn = prompt('What do you want to know about Charles? Choose between firstName, lastName, age, job, and friends.');
+console.log(charlesObject[interestedIn]); // cannot use dot notation here
+
+if (charlesObject[interestedIn]) {
+    console.log(charlesObject[interestedIn]);
+} else {
+    console.log('Wrong request! Choose between firstName, lastName, age, job, and friends.')
+}
+
+// using both dot and bracket
+charlesObject.location = 'USA';
+charlesObject['twitter'] = 'krispykreme';
+console.log(charlesObject);
