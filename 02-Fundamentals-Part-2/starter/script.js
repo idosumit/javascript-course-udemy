@@ -342,7 +342,46 @@ const charlesZeroRings = {
 };
 
 console.log(charlesZeroRings.getSummary());
-*/
 
 // --------------------------------- CODING EXERCISE 7 ----------------------------------- //
 // My solution: 02-Fundamentals-Part-2/codingexercise7 (objects).js
+*/
+
+
+// ------------------------- THE FOR LOOP: LOOPING ARRAYS, BREAKING, CONTINUING --------------------------- //
+for (let i = 0; i < 2; i++) {
+    console.log(`Lifting weights repetition ${i}`);
+}
+
+const charlesZeroRings = [
+    'Charles',
+    'Barkley',
+    2037 - 1991,
+    'basketball player',
+    ['Ernie', 'Kenny the Jet', 'Shaq'],
+    true
+];
+
+const types = [];
+
+for (let i = 0; i < charlesZeroRings.length; i++) {
+    console.log(charlesZeroRings[i], typeof charlesZeroRings[i]);
+
+    // types[i] = typeof charlesZeroRings[i];
+
+    // Another way
+    types.push(typeof charlesZeroRings[i]);
+}
+
+console.log(types); // Output: ['string', 'string', 'number', 'string', 'object', 'boolean']
+
+
+// One more example
+const years = [1991, 2007, 1969, 2020];
+const ages = [];
+
+for (let i = 0; i < years.length; i++) {
+    // Let's assume 2024 is the current year
+    ages.push(2024 - years[i]);
+}
+console.log(ages); // Output: (4) [33, 17, 55, 4]
