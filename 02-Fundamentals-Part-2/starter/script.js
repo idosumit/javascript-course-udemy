@@ -248,8 +248,6 @@ charlesObject.location = 'USA';
 charlesObject['twitter'] = 'krispykreme';
 console.log(charlesObject);
 
-*/
-
 // --------------------------------- DOT v BRACKET NOTATION CHALLENGE ----------------------------------- //
 // To produce: "Charles has 3 friends, and his best friend is called Ernie."
 // TASK: Use both dot and bracket notations.
@@ -260,3 +258,44 @@ const charlesZeroRings = {
 };
 
 console.log(`${charlesZeroRings.name} has ${charlesZeroRings.friends.length} friends, and his best friend is called ${charlesZeroRings.friends[0]}.`)
+
+*/
+
+// --------------------------------- OBJECT METHODS ----------------------------------- //
+const charlesObject = {
+    firstName: 'Charles',
+    lastName: 'Barkley',
+    birthYear: 1991,
+    job: 'basketball player',
+    friends: ['Ernie', 'Kenny the Jet', 'Shaq'],
+    hasDriversLicense: true,
+
+    calcAge: function (birthYear) {
+        return 2037 - birthYear; // a function-like thing inside the object is called a method
+    }
+};
+
+console.log(charlesObject.calcAge(1991));
+// OR
+console.log(charlesObject['calcAge'](1991));
+
+// BETTER WAY TO DO THIS:
+const charlesZeroRings = {
+    firstName: 'Charles',
+    lastName: 'Barkley',
+    birthYear: 1991,
+    job: 'basketball player',
+    friends: ['Ernie', 'Kenny the Jet', 'Shaq'],
+    hasDriversLicense: true,
+
+    calcAgee: function () {
+        console.log(this);
+        return 2037 - this.birthYear;
+    }
+};
+
+console.log(charlesZeroRings.calcAgee());
+
+// OUTPUT:
+// {firstName: 'Charles', lastName: 'Barkley', birthYear: 1991, job: 'basketball player', friends: Array(3), …}
+// 46
