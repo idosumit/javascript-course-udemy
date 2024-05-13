@@ -259,7 +259,6 @@ const charlesZeroRings = {
 
 console.log(`${charlesZeroRings.name} has ${charlesZeroRings.friends.length} friends, and his best friend is called ${charlesZeroRings.friends[0]}.`)
 
-*/
 
 // --------------------------------- OBJECT METHODS ----------------------------------- //
 const charlesObject = {
@@ -299,3 +298,24 @@ console.log(charlesZeroRings.calcAgee());
 // OUTPUT:
 // {firstName: 'Charles', lastName: 'Barkley', birthYear: 1991, job: 'basketball player', friends: Array(3), …}
 // 46
+
+*/
+
+// YET ANOTHER VARIATION:
+const charlesZeroRings = {
+    firstName: 'Charles',
+    lastName: 'Barkley',
+    birthYear: 1991,
+    job: 'basketball player',
+    friends: ['Ernie', 'Kenny the Jet', 'Shaq'],
+    hasDriversLicense: true,
+
+    calcAge: function () {
+        this.age = 2037 - this.birthYear;
+        // console.log(this);
+        return this.age;
+    }
+};
+console.log(charlesZeroRings.calcAge()); // this needs to be done once otherwise the below logs won't work
+
+console.log(charlesZeroRings.age);
