@@ -317,7 +317,6 @@ const charlesZeroRings = {
 console.log(charlesZeroRings.calcAge()); // this needs to be done once otherwise the below logs won't work
 
 console.log(charlesZeroRings.age);
-*/
 
 // --------------------------------- OBJECT METHOD CHALLENGE ----------------------------------- //
 // Challenge:
@@ -343,3 +342,7 @@ const charlesZeroRings = {
 };
 
 console.log(charlesZeroRings.getSummary());
+*/
+
+// --------------------------------- CODING EXERCISE 7 ----------------------------------- //
+// My solution: 02-Fundamentals-Part-2/codingexercise7 (objects).js
