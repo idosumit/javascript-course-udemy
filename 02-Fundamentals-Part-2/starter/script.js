@@ -419,8 +419,6 @@ for (let i = 0; i < charlesZeroRings.length; i++) {
     // Charles string
     // Barkley string
 }
-*/
-
 
 // ------------------------- THE WHILE LOOP --------------------------- //
 
@@ -438,3 +436,9 @@ while (dice !== 6) {
     dice = Math.trunc(Math.random() * 6) + 1;
     if (dice === 6) console.log('Loop is about to end...')
 }
+
+*/
+
+
+// ------------------------- CODING EXERCISE 8: LOOP, FUNCTION, ARRAY --------------------------- //
+// My solution: 02-Fundamentals-Part-2/codingexercise8 (loops).js
