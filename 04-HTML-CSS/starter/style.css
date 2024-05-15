@@ -11,10 +11,22 @@ body {
   background-color: rgb(255, 233, 205);
   font-family: Verdana;
   font-size: 12px;
+  padding: 50px;
 }
 
 h1 {
   font-size: 20px;
+  margin-bottom: 15px;
+}
+
+h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+p {
+  /*This applies to all the paragraphs*/
+  margin-bottom: 20px;
 }
 
 .first {
@@ -23,5 +35,27 @@ h1 {
 
 #your-name {
   background-color: rgb(254, 180, 180);
-  border: 3px solid #d1ffed;
+  border: 3px solid #660014;
+  width: 450px;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+input,
+button {
+  padding: 10px;
+  font-size: 16px;
+}
+
+a {
+  background-color: mediumaquamarine;
+}
+
+#poppy-war-trilogy {
+  width: 450px;
+}
+
+/* In case we need to select a specific part of the html code, let's assume h2 inside the form box*/
+#your-name h2 {
+  color: magenta;
 }
