@@ -1,24 +1,3 @@
-<html>
-  <head>
-    <title>HTML & CSS</title>
-  </head>
-  <body>
-    <h1>JS is fun, but so is HTML & CSS!</h1>
-    <p>
-      So I've slept for barely 2 hours today. My study could be affected today,
-      but I'll try my best. Life can get pretty tough sometimes.
-    </p>
-    <h3>I like books</h3>
-    <p>
-      Just throwing another paragraph here. So, I really like this one book
-      series called the Poppy War Trilogy. It's written by R.F. Kuang, and it is
-      a fantasy novel series.
-    </p>
-  </body>
-</html>
-
-<!--We can accelerate this in VS Code. We can do: !+tab and we get a quick sample to work with right away.-->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -28,15 +7,30 @@
   </head>
   <body>
     <h1>JS is fun, but so is HTML & CSS!</h1>
-    <p>
+    <p class="first">
       So I've slept for barely 2 hours today. My study could be affected today,
       but I'll try my best. Life can get pretty tough sometimes.
+
+      <a href="https://en.wikipedia.org/wiki/Charles_Barkley"
+        >Charles Barkley</a
+      >
     </p>
     <h3>I like books</h3>
-    <p>
+    <p class="second">
       Just throwing another paragraph here. So, I really like this one book
       series called the Poppy War Trilogy. It's written by R.F. Kuang, and it is
       a fantasy novel series.
     </p>
+
+    <img
+      id="'poppy-war-trilogy"
+      src="https://m.media-amazon.com/images/I/71ILIZx16ML._AC_UF1000,1000_QL80_.jpg"
+    />
+    <form id="your-name"></form>
+    <h2>Your name here</h2>
+    <p>Please fill out this form.</p>
+
+    <input type="text" placeholder="Your name" />
+    <button>OK!</button>
   </body>
 </html>
