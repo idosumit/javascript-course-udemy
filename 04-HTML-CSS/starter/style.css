@@ -1,3 +1,12 @@
+/*
+So, by default, there always is some kind of margin and padding in the server page (headings, paddings inside boxes, etc.). This can get troublesome if we’re trying to use our own logic to build the webpage. Therefore, we can just have a ground reset rule in the CSS file, which is called global reset.
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   background-color: rgb(255, 233, 205);
   font-family: Verdana;
