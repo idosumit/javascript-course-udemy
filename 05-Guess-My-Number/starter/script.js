@@ -1,7 +1,9 @@
 'use strict';
 
 console.log(document.querySelector('.message').textContent);
-// Output: Start guessing...
-// Here, the addition of .textContent gave us the text from the HTML snippet "<p class="message">Start guessing...</p>"
+document.querySelector('.message').textContent = 'Correct Number! 🥳'; // Changed the text content
 
-// This is called DOM manipulation apparently? The explanation comes later.
+document.querySelector('.number').textContent = 13;
+document.querySelector('.score').textContent = 10;
+document.querySelector('.guess').value = 23;
+console.log(document.querySelector('.guess').value);
