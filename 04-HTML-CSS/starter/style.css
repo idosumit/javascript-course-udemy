@@ -1,0 +1,18 @@
+body {
+  background-color: rgb(255, 233, 205);
+  font-family: Verdana;
+  font-size: 12px;
+}
+
+h1 {
+  font-size: 20px;
+}
+
+.first {
+  color: brown;
+}
+
+#your-name {
+  background-color: rgb(254, 180, 180);
+  border: 3px solid #d1ffed;
+}
