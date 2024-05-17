@@ -26,6 +26,8 @@ let secretNumber = Math.trunc(Math.random() * 20) + 1;
 
 let score = 20; // declaring a variable score that'll keep decreasing if the user guesses incorrectly
 
+let highscore = 0;
+
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
   console.log(guess);
@@ -42,6 +44,11 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('body').style.backgroundColor = '#60b347'; // green color
 
     document.querySelector('.number').style.width = '30rem'; //.number in the css has 15 rem width (the rectangle), we're doubling it
+
+    if (score > highscore) {
+      highscore = score;
+      document.querySelector('.highscore').textContent = highscore;
+    }
 
     // if the guess is too high
   } else if (guess > secretNumber) {
