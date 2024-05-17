@@ -43,7 +43,7 @@ document.querySelector('.check').addEventListener('click', function () {
 
     document.querySelector('body').style.backgroundColor = '#60b347'; // green color
 
-    document.querySelector('.number').style.width = '30rem'; //.number in the css has 15 rem width (the rectangle), we're doubling it
+    document.querySelector('.number').style.width = '30rem'; //.number in the css has 15 rem width (the rectangle), we're doubling itt
 
     if (score > highscore) {
       highscore = score;
