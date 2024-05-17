@@ -20,10 +20,9 @@ console.log(document.querySelector('.guess').value);
 // Let's select the element where want te event to happen. Where we want the code to "LISTEN" to our event. 'Check' button in this case)
 
 // Defining the secret number outside the function
-const secretNumber = Math.trunc(Math.random() * 20) + 1;
+let secretNumber = Math.trunc(Math.random() * 20) + 1;
 // Math.number gives us random from 0 to 1
 // Trunc, as in its name, cuts off numbers away after the decimal. NOT rounding off.
-document.querySelector('.number').textContent = secretNumber;
 
 let score = 20; // declaring a variable score that'll keep decreasing if the user guesses incorrectly
 
@@ -38,6 +37,7 @@ document.querySelector('.check').addEventListener('click', function () {
   // if there IS a guess and it's correct
   else if (guess === secretNumber) {
     document.querySelector('.message').textContent = 'Correct Number! 🥳';
+    document.querySelector('.number').textContent = secretNumber;
 
     document.querySelector('body').style.backgroundColor = '#60b347'; // green color
 
@@ -68,3 +68,26 @@ document.querySelector('.check').addEventListener('click', function () {
 });
 // btn class in the html file is generic and so we don't need to select it
 // function in this code snippet is telling the event (in this case 'click' exactly what to do.) This function does NOT run when the webpage runs. It runs ONLY WHEN the "Check!" button on the webpage is clicked.
+
+/*
+============================================ CODING CHALLENGE #1 ===================================================
+Implement a game reset functionality, so that the player can make a new guess!
+
+Steps:
+1. Select the element with the 'again' class and attach a click event handler.
+2. In the handler function, restore initial values of the score and secretNumber variables.
+3. Restore the initial conditions of the message, number, score, and the guess input field.
+4. Also restore the original background color (#222) and number width (15rem).
+*/
+
+document.querySelector('.again').addEventListener('click', function () {
+  score = 20;
+  secretNumber = Math.trunc(Math.random()) + 1;
+  document.querySelector('.message').textContent = 'Start guessing...';
+  document.querySelector('.score').textContent = score;
+  document.querySelector('.number').textContent = '?';
+
+  document.querySelector('.guess').value = ' ';
+  document.querySelector('body').style.backgroundColor = '#222';
+  document.querySelector('.number').style.width = '15rem';
+});
