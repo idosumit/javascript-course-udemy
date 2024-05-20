@@ -28,17 +28,21 @@ let score = 20; // declaring a variable score that'll keep decreasing if the use
 
 let highscore = 0;
 
+const displayMessage = function (message) {
+  document.querySelector('.message').textContent = message;
+};
+
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
   console.log(guess);
 
   //when there is no input
   if (!guess) {
-    document.querySelector('.message').textContent = 'No number ⛔️';
+    displayMessage('No number ⛔️');
   }
   // if there IS a guess and it's correct
   else if (guess === secretNumber) {
-    document.querySelector('.message').textContent = 'Correct Number! 🥳';
+    displayMessage('Correct Number! 🥳');
     document.querySelector('.number').textContent = secretNumber;
 
     document.querySelector('body').style.backgroundColor = '#60b347'; // green color
@@ -50,25 +54,14 @@ document.querySelector('.check').addEventListener('click', function () {
       document.querySelector('.highscore').textContent = highscore;
     }
 
-    // if the guess is too high
-  } else if (guess > secretNumber) {
+    // if the guess is WRONG
+  } else if (guess !== secretNumber) {
     if (score > 1) {
-      document.querySelector('.message').textContent = '📈 Too high!';
+      displayMessage(guess > secretNumber ? '📈 Too high!' : '📈 Too low!');
       score--;
       document.querySelector('.score').textContent = score;
     } else {
-      document.querySelector('.message').textContent = 'You lost! 😥';
-      document.querySelector('.score').textContent = 0;
-    }
-
-    // if the guess is low
-  } else if (guess < secretNumber) {
-    if (score > 1) {
-      document.querySelector('.message').textContent = '📈 Too low!';
-      score--;
-      document.querySelector('.score').textContent = score;
-    } else {
-      document.querySelector('.message').textContent = 'You lost! 😥';
+      displayMessage('You lost! 😥');
       document.querySelector('.score').textContent = 0;
     }
   }
@@ -90,7 +83,7 @@ Steps:
 document.querySelector('.again').addEventListener('click', function () {
   score = 20;
   secretNumber = Math.trunc(Math.random()) + 1;
-  document.querySelector('.message').textContent = 'Start guessing...';
+  displayMessage('Start guessing...');
   document.querySelector('.score').textContent = score;
   document.querySelector('.number').textContent = '?';
 
