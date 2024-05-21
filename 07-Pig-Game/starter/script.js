@@ -13,9 +13,36 @@ const btnNew = document.querySelector('.btn--new');
 const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
 
-score0Element.textContent = 0;
-score1Element.textContent = 0;
-diceElement.classList.add('hidden');
+let scores, currentScore, activePlayer, playing;
+
+const init = function () {
+  // initializing recurring values for better modularity
+
+  scores = [0, 0]; // for storing scores when player clicks hold (player0 for position 0, player 1 for position 1)
+
+  currentScore = 0;
+  activePlayer = 0;
+  playing = true; // meaning we are currently playing the game
+
+  // change the player 1 and player 2 held scores to 0
+  score0Element.textContent = 0;
+  score1Element.textContent = 0;
+
+  // change the current score of whoever is playing to 0
+  current0Element.textContent = 0;
+  current1Element.textContent = 0;
+
+  diceElement.classList.add('hidden');
+  // Removing the winner background if it exists (simple and direct)
+  player0Element.classList.remove('player--winner');
+  player1Element.classList.remove('player--winner');
+
+  // active player removal
+  player0Element.classList.add('player--active'); // should start with player 0, so this is 'add' just in case
+  player1Element.classList.remove('player--active');
+};
+
+init();
 
 const switchPlayer = function () {
   document.getElementById(`current--${activePlayer}`).textContent = 0;
@@ -24,12 +51,6 @@ const switchPlayer = function () {
   player0Element.classList.toggle('player--active');
   player1Element.classList.toggle('player--active');
 };
-
-const scores = [0, 0]; // for storing scores when player clicks hold (player0 for position 0, player 1 for position 1)
-
-let currentScore = 0;
-let activePlayer = 0;
-let playing = true; // meaning we are currently playing the game
 
 btnRoll.addEventListener('click', function () {
   if (playing) {
@@ -62,7 +83,7 @@ btnHold.addEventListener('click', function () {
       scores[activePlayer];
 
     //2. check if player's score >= 100
-    if (scores[activePlayer] >= 20) {
+    if (scores[activePlayer] >= 100) {
       playing = false;
       // Finish the game
       document
@@ -78,3 +99,5 @@ btnHold.addEventListener('click', function () {
     }
   }
 });
+
+btnNew.addEventListener('click', init);
