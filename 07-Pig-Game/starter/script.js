@@ -101,3 +101,5 @@ btnHold.addEventListener('click', function () {
 });
 
 btnNew.addEventListener('click', init);
+
+/*============================================ SECTION 7: fin. ===================================================*/
