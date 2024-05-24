@@ -1,6 +1,6 @@
 'use strict';
 /*
-============================================ Destructuring Objects ===================================================
+============================================ Mutating Variables While Destructuring Objects ===================================================
 */
 
 // Data needed for a later exercise
@@ -34,7 +34,31 @@ const restaurant = {
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
+
+  // adding a new function for destructuring
+  orderDelivery: function ({
+    starterIndex = 1,
+    mainIndex = 0,
+    time = '20:00',
+    address,
+  }) {
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}.`
+    );
+  },
 };
+
+restaurant.orderDelivery({
+  time: '23:30',
+  address: 'Shinjuku-ku, Tokyo',
+  mainIndex: 2,
+  starterIndex: 0,
+});
+
+restaurant.orderDelivery({
+  address: 'Shinjuku-ku, Tokyo',
+  starterIndex: 1,
+});
 
 const { name, openingHours, categories } = restaurant;
 console.log(name, openingHours, categories);
@@ -46,11 +70,23 @@ const {
 } = restaurant;
 console.log(restaurantName, hours, tags);
 
+// ==== Default values =====
 // defining 'menu' by setting a default value of [], and changing starterMenu to starters
 const { menu = [], starterMenu: starters = [] } = restaurant;
 console.log(menu, starters);
 
-//
+// ===== Mutating variables =====
+let a = 111;
+let b = 999;
+const obj = { a: 23, b: 7, c: 14 };
+({ a, b } = obj); // can't just write {a, b}, need parenthesis
+console.log(a, b); // output: 23, 7
+
+// ===== Nested objects =====
+const {
+  fri: { open, close },
+} = openingHours;
+console.log(open, close);
 
 // ======== DESCRUCTURING ARRAYS PRACTICE BELOW =========
 
