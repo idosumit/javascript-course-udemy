@@ -1,4 +1,7 @@
 'use strict';
+/*
+============================================ Destructuring Arrays: Part 1 ===================================================
+*/
 
 // Data needed for a later exercise
 const flights =
@@ -27,3 +30,16 @@ const restaurant = {
     },
   },
 };
+
+const arr = [2, 3, 4];
+const a = arr[0];
+const b = arr[1];
+const c = arr[2];
+
+const [x, y, z] = arr;
+console.log(x, y, z);
+console.log(arr);
+
+const [first, , second] = restaurant.categories;
+// if we do this, the second element will be skipped, and the 'second' here becomes the third element.
+console.log(first, second); // gives: Italian Vegetarian
