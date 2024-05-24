@@ -1,6 +1,6 @@
 'use strict';
 /*
-============================================ Destructuring Arrays ===================================================
+============================================ Destructuring Objects ===================================================
 */
 
 // Data needed for a later exercise
@@ -14,11 +14,6 @@ const restaurant = {
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-
-  // adding a method here
-  order: function (starterIndex, mainIndex) {
-    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
-  },
 
   openingHours: {
     thu: {
@@ -34,53 +29,76 @@ const restaurant = {
       close: 24,
     },
   },
+
+  // adding a method here
+  order: function (starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
 };
 
-const arr = [2, 3, 4];
-const a = arr[0];
-const b = arr[1];
-const c = arr[2];
+const { name, openingHours, categories } = restaurant;
+console.log(name, openingHours, categories);
 
-const [x, y, z] = arr;
-console.log(x, y, z);
-console.log(arr);
+const {
+  name: restaurantName,
+  openingHours: hours,
+  categories: tags,
+} = restaurant;
+console.log(restaurantName, hours, tags);
 
-let [main, , secondary] = restaurant.categories;
-// if we do this, the second element will be skipped, and the 'secondary' here becomes the third element.
-console.log(main, secondary); // gives: Italian Vegetarian
+// defining 'menu' by setting a default value of [], and changing starterMenu to starters
+const { menu = [], starterMenu: starters = [] } = restaurant;
+console.log(menu, starters);
 
-// if we want to switch these two variables:
-// // one way:
-// const temp = main;
-// main = secondary;
-// secondary = temp;
-// console.log(main, secondary); // output: Vegetarian, Italian
+//
 
-// the other way:
-[main, secondary] = [secondary, main];
-console.log(main, secondary); // Output: Vegetarian, Italian
+// ======== DESCRUCTURING ARRAYS PRACTICE BELOW =========
 
-// receiving 2 return values from a function
-const [starter, mainCourse] = restaurant.order(2, 0);
-console.log(starter, mainCourse);
+// const arr = [2, 3, 4];
+// const a = arr[0];
+// const b = arr[1];
+// const c = arr[2];
 
-/*
-============================================ Nested Destructuring ===================================================
-*/
-const nested = [2, 4, [5, 6]];
-// let's say we wanted to get 2 and [5,6], we should do:
-const [i, , j] = nested;
-console.log(i, j); // output: 2 [5,6]
+// const [x, y, z] = arr;
+// console.log(x, y, z);
+// console.log(arr);
 
-// what if we wanted to get all individual numbers (and not a number and another array like above)?
-const nestedNew = [2, 4, [5, 6]];
-const [i1, , [j1, k1]] = nestedNew;
-console.log(i1, j1, k1); // output: 2 5 6
+// let [main, , secondary] = restaurant.categories;
+// // if we do this, the second element will be skipped, and the 'secondary' here becomes the third element.
+// console.log(main, secondary); // gives: Italian Vegetarian
 
-// ================ Default values ==================
-// const [p, q, r] = [8, 9];
-// console.log(p, q, r); // output: 8 9 undefined
+// // if we want to switch these two variables:
+// // // one way:
+// // const temp = main;
+// // main = secondary;
+// // secondary = temp;
+// // console.log(main, secondary); // output: Vegetarian, Italian
 
-// Let's do this instead
-const [p = 1, q = 1, r = 1] = [8, 9];
-console.log(p, q, r); // output: 8 9 1
+// // the other way:
+// [main, secondary] = [secondary, main];
+// console.log(main, secondary); // Output: Vegetarian, Italian
+
+// // receiving 2 return values from a function
+// const [starter, mainCourse] = restaurant.order(2, 0);
+// console.log(starter, mainCourse);
+
+// /*
+// ============================================ Nested Destructuring ===================================================
+// */
+// const nested = [2, 4, [5, 6]];
+// // let's say we wanted to get 2 and [5,6], we should do:
+// const [i, , j] = nested;
+// console.log(i, j); // output: 2 [5,6]
+
+// // what if we wanted to get all individual numbers (and not a number and another array like above)?
+// const nestedNew = [2, 4, [5, 6]];
+// const [i1, , [j1, k1]] = nestedNew;
+// console.log(i1, j1, k1); // output: 2 5 6
+
+// // ================ Default values ==================
+// // const [p, q, r] = [8, 9];
+// // console.log(p, q, r); // output: 8 9 undefined
+
+// // Let's do this instead
+// const [p = 1, q = 1, r = 1] = [8, 9];
+// console.log(p, q, r); // output: 8 9 1
