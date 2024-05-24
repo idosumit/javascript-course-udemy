@@ -1,6 +1,6 @@
 'use strict';
 /*
-============================================ Destructuring Arrays: Part 2: Switching Variables ===================================================
+============================================ Destructuring Arrays ===================================================
 */
 
 // Data needed for a later exercise
@@ -14,6 +14,11 @@ const restaurant = {
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+
+  // adding a method here
+  order: function (starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
 
   openingHours: {
     thu: {
@@ -54,3 +59,20 @@ console.log(main, secondary); // gives: Italian Vegetarian
 // the other way:
 [main, secondary] = [secondary, main];
 console.log(main, secondary); // Output: Vegetarian, Italian
+
+// receiving 2 return values from a function
+const [starter, mainCourse] = restaurant.order(2, 0);
+console.log(starter, mainCourse);
+
+/*
+============================================ Nested Destructuring ===================================================
+*/
+const nested = [2, 4, [5, 6]];
+// let's say we wanted to get 2 and [5,6], we should do:
+const [i, , j] = nested;
+console.log(i, j); // output: 2 [5,6]
+
+// what if we wanted to get all individual numbers (and not a number and another array like above)?
+const nestedNew = [2, 4, [5, 6]];
+const [i1, , [j1, k1]] = nestedNew;
+console.log(i1, j1, k1); // output: 2 5 6
