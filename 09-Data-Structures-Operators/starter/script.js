@@ -76,3 +76,11 @@ console.log(i, j); // output: 2 [5,6]
 const nestedNew = [2, 4, [5, 6]];
 const [i1, , [j1, k1]] = nestedNew;
 console.log(i1, j1, k1); // output: 2 5 6
+
+// ================ Default values ==================
+// const [p, q, r] = [8, 9];
+// console.log(p, q, r); // output: 8 9 undefined
+
+// Let's do this instead
+const [p = 1, q = 1, r = 1] = [8, 9];
+console.log(p, q, r); // output: 8 9 1
