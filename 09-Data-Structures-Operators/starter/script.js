@@ -1,6 +1,6 @@
 'use strict';
 /*
-============================================ Destructuring Arrays: Part 1 ===================================================
+============================================ Destructuring Arrays: Part 2: Switching Variables ===================================================
 */
 
 // Data needed for a later exercise
@@ -40,6 +40,17 @@ const [x, y, z] = arr;
 console.log(x, y, z);
 console.log(arr);
 
-const [first, , second] = restaurant.categories;
-// if we do this, the second element will be skipped, and the 'second' here becomes the third element.
-console.log(first, second); // gives: Italian Vegetarian
+let [main, , secondary] = restaurant.categories;
+// if we do this, the second element will be skipped, and the 'secondary' here becomes the third element.
+console.log(main, secondary); // gives: Italian Vegetarian
+
+// if we want to switch these two variables:
+// // one way:
+// const temp = main;
+// main = secondary;
+// secondary = temp;
+// console.log(main, secondary); // output: Vegetarian, Italian
+
+// the other way:
+[main, secondary] = [secondary, main];
+console.log(main, secondary); // Output: Vegetarian, Italian
