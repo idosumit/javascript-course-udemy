@@ -198,7 +198,45 @@ const restaurant = {
   },
 };
 
+// =================================== SHORT CIRCUITING (&& and ||) ====================================
+console.log('-------- OR ----------');
+
+console.log(3 || 'Barkley'); // 3 is truthy
+console.log('' || 'Charles'); // '' is falsy
+console.log(true || 0); // true is truthy
+console.log(undefined || null); // undefined is falsy so it doesn't reach null
+console.log(undefined || 0 || '' || 'Hello' || 23 || null); // 'hello' is the 1st truthy value
+
+// restaurant.numGuests = 23;
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
+
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2); // 10
+
+console.log('----------AND----------');
+console.log(0 && 'Charles'); // 0, since it's falsy
+console.log(7 && 'Charles'); // Charles, since 7 is truthy so the last value is returned
+
+console.log('Hello' && 23 && null && 'Charles'); // null
+
+// Practical example
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushrooms', 'olive');
+}
+
+// simpler way
+restaurant.orderPizza && restaurant.orderPizza('mushroom', 'olive');
+
+//Short circuiting is an even better way to initialize values than ternary operator or if/else statements. HOWEVER, if our initial number is 0, short circuiting won't work.
+
+// ==========================> IMPORTANT
+// The OR (||) operator will return the first truthy value of all the operands, or simply the last value if all of them are falsy. On the other hand, the AND (&&) operator will return the first falsy value or the last value if all of them are truthy. And as for practical applications, we can use the OR operator to set default values, and we can use the AND operator to execute code in the second operand if the first one is true.
+// ==========================> IMPORTANT
+
+//
 /*
+
 // what we'll do:
 const newMenu = [...restaurant.mainMenu, 'Gnocci'];
 console.log(newMenu); // Output: ['Pizza', 'Pasta', 'Risotto', 'Gnocci']
@@ -245,7 +283,6 @@ const restaurantCopy = { ...restaurant };
 restaurantCopy.name = 'Krispy Kreme';
 console.log('Copy name: ', restaurantCopy.name);
 console.log('Original name: ', restaurant.name);
-*/
 
 // ============================================ REST PATTERN ===================================================
 
@@ -286,3 +323,4 @@ restaurant.orderPizza('mushroom', 'pineapple', 'olive', 'lettuce'); // Output:
 // [ 'pineapple', 'olive', 'lettuce' ]
 
 restaurant.orderPizza('mushroom');
+*/
