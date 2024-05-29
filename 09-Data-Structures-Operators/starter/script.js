@@ -199,6 +199,7 @@ const restaurant = {
 };
 
 // =================================== SHORT CIRCUITING (&& and ||) ====================================
+/*
 console.log('-------- OR ----------');
 
 console.log(3 || 'Barkley'); // 3 is truthy
@@ -227,6 +228,17 @@ if (restaurant.orderPizza) {
 
 // simpler way
 restaurant.orderPizza && restaurant.orderPizza('mushroom', 'olive');
+*/
+
+console.log('----------NULLISH (??) COALESING----------');
+
+restaurant.numGuests = 0;
+const guests = restaurant.numGuests || 10;
+// console.log(guests);
+
+// NULLISH: null and undefined (NOT 0 or ''. Basically ?? pretends that 0 and '' are truthy.)
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect);
 
 //Short circuiting is an even better way to initialize values than ternary operator or if/else statements. HOWEVER, if our initial number is 0, short circuiting won't work.
 
