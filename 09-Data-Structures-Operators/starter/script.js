@@ -1,7 +1,7 @@
 'use strict';
 /*
 ============================================ Mutating Variables While Destructuring Objects ===================================================
-*/
+
 
 // Data needed for a later exercise
 const flights =
@@ -118,9 +118,7 @@ console.log(open, close);
 // const [starter, mainCourse] = restaurant.order(2, 0);
 // console.log(starter, mainCourse);
 
-// /*
 // ============================================ Nested Destructuring ===================================================
-// */
 // const nested = [2, 4, [5, 6]];
 // // let's say we wanted to get 2 and [5,6], we should do:
 // const [i, , j] = nested;
@@ -138,3 +136,106 @@ console.log(open, close);
 // // Let's do this instead
 // const [p = 1, q = 1, r = 1] = [8, 9];
 // console.log(p, q, r); // output: 8 9 1
+
+*/
+
+// ============================================ Spread Operator ===================================================
+
+const arr = [7, 8, 9];
+const badArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badArr);
+
+const goodArr = [1, 2, ...arr];
+console.log(goodArr); // output: [1, 2, 7, 8, 9]
+
+// ============== Going more complex
+
+// Example from above:
+const restaurant = {
+  name: 'Classico Italiano',
+  location: 'Via Angelo Tavanti 23, Firenze, Italy',
+  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+
+  openingHours: {
+    thu: {
+      open: 12,
+      close: 22,
+    },
+    fri: {
+      open: 11,
+      close: 23,
+    },
+    sat: {
+      open: 0, // Open 24 hours
+      close: 24,
+    },
+  },
+
+  order: function (starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
+  orderDelivery: function ({
+    starterIndex = 1,
+    mainIndex = 0,
+    time = '20:00',
+    address,
+  }) {
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}.`
+    );
+  },
+
+  // adding method here for spread operator
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(`Here is your pasta with ${ing1}, ${ing2}, and ${ing3}.`);
+  },
+};
+
+// what we'll do:
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu); // Output: ['Pizza', 'Pasta', 'Risotto', 'Gnocci']
+console.log(...newMenu); // Output: Pizza Pasta Risotto Gnocci
+
+// ========= Copy array
+const mainMenuCopy = [...restaurant.mainMenu];
+
+// ========= Join 2 arrays (or more)
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(menu);
+
+// =======NOTE ON ITERABLES
+// Iterables are arrays, strings, maps, and sets. NOT objects.
+const str = 'Charles';
+const letters = [...str, ' ', 'B.'];
+console.log(letters);
+console.log(...str);
+
+// THIS WILL NOT WORK:
+// console.log(`${...str} Barkley`); // doesn't work
+// multiple values separated by comma are usually ONLY expected when we pass arguments into a function or when we build arrays.
+
+// ======= Spread Operator with Methods
+// const ingredients = [
+//   prompt("Let's make pasta! Ingredient 1: "),
+//   prompt('Ingredient 2: '),
+//   prompt('Ingredient 3: '),
+// ];
+
+// console.log(ingredients);
+// console.log(restaurant.orderPasta(...ingredients));
+
+// ======= Spread Operator with Objects
+const newRestaurant = {
+  ...restaurant,
+  foundedIn: 1966,
+  founder: 'Barkley Zero Rings',
+};
+console.log('New Restaurant:', newRestaurant);
+
+// object copy
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = 'Krispy Kreme';
+console.log('Copy name: ', restaurantCopy.name);
+console.log('Original name: ', restaurant.name);
