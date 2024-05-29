@@ -192,14 +192,50 @@ const restaurant = {
   },
 
   // adding yet another method here for rest pattern
-  orderPizza: function (mainIngredient, ...otherIngredients) {
+  orderPizza: (mainIngredient, ...otherIngredients) => {
     console.log(mainIngredient);
     console.log(otherIngredients);
   },
 };
 
-// =================================== SHORT CIRCUITING (&& and ||) ====================================
+// =================================== LOGICAL ASSIGNMENT OPERATOR ====================================
+const rest1 = {
+  name: 'Capri',
+  numGuests: 0,
+};
+
+const rest2 = {
+  name: 'La Pizza',
+  owner: 'Giovanni Rossi',
+};
+
+// OR assignment operator
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+
+// Instead, we can write the following:
+// ========Logical assignment operator
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
+
+// to make it even better:
+// ========Logical nullish assignment operator
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+
+// ========Logical AND assignment operator
+// rest1.owner = rest1.owner && '<ANONYMOUS>';
+// rest2.owner = rest2.owner && '<ANONYMOUS>';
+
+// we can make this better with:
+rest1.owner &&= '<ANONYMOUS>';
+rest2.owner &&= '<ANONYMOUS>';
+
+console.log(rest1, rest2);
+
 /*
+// =================================== SHORT CIRCUITING (&& and ||) ====================================
+
 console.log('-------- OR ----------');
 
 console.log(3 || 'Barkley'); // 3 is truthy
@@ -228,7 +264,6 @@ if (restaurant.orderPizza) {
 
 // simpler way
 restaurant.orderPizza && restaurant.orderPizza('mushroom', 'olive');
-*/
 
 console.log('----------NULLISH (??) COALESING----------');
 
