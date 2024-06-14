@@ -1,4 +1,7 @@
 'use strict';
+
+// ============================================ CODING CHALLENGE #1 ===================================================
+
 /*
 ============================================ Mutating Variables While Destructuring Objects ===================================================
 
@@ -149,7 +152,7 @@ console.log(goodArr); // output: [1, 2, 7, 8, 9]
 // ============== Going more complex
 
 // Example from above:
-*/
+
 const restaurant = {
   name: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
@@ -198,6 +201,7 @@ const restaurant = {
   },
 };
 
+
 // =================================== LOGICAL ASSIGNMENT OPERATOR ====================================
 const rest1 = {
   name: 'Capri',
@@ -233,7 +237,6 @@ rest2.owner &&= '<ANONYMOUS>';
 
 console.log(rest1, rest2);
 
-/*
 // =================================== SHORT CIRCUITING (&& and ||) ====================================
 
 console.log('-------- OR ----------');
