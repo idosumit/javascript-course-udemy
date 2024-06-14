@@ -1,5 +1,7 @@
 'use strict';
 
+/*
+
 // ============================================ CODING CHALLENGE #1 ===================================================
 // My answer at: 09-Data-Structures-Operators/starter/coding-challenge-1.js
 
@@ -375,3 +377,64 @@ restaurant.orderPizza('mushroom', 'pineapple', 'olive', 'lettuce'); // Output:
 
 restaurant.orderPizza('mushroom');
 */
+
+// ============================================ FOR-OF LOOP ===================================================
+// Example from above:
+
+const restaurant = {
+  name: 'Classico Italiano',
+  location: 'Via Angelo Tavanti 23, Firenze, Italy',
+  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+
+  openingHours: {
+    thu: {
+      open: 12,
+      close: 22,
+    },
+    fri: {
+      open: 11,
+      close: 23,
+    },
+    sat: {
+      open: 0, // Open 24 hours
+      close: 24,
+    },
+  },
+
+  order: function (starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
+  orderDelivery: function ({
+    starterIndex = 1,
+    mainIndex = 0,
+    time = '20:00',
+    address,
+  }) {
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}.`
+    );
+  },
+
+  // adding method here for spread operator
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(`Here is your pasta with ${ing1}, ${ing2}, and ${ing3}.`);
+  },
+
+  // adding yet another method here for rest pattern
+  orderPizza: (mainIngredient, ...otherIngredients) => {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+  },
+};
+
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+// the loop here
+for (const i of menu) console.log(i);
+
+// to get items with their indexes
+for (const [counter, element] of menu.entries()) {
+  console.log(`${counter + 1}: ${element}`);
+}
