@@ -1,6 +1,7 @@
 'use strict';
 
 // ============================================ CODING CHALLENGE #1 ===================================================
+// My answer at: 09-Data-Structures-Operators/starter/coding-challenge-1.js
 
 /*
 ============================================ Mutating Variables While Destructuring Objects ===================================================

@@ -77,3 +77,26 @@ players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
 // console.log(players1Final);
 
 //5. Based on the game.odds object, create one variable for each odd (called 'team1', 'draw' and 'team2')
+const {
+  odds: { team1, x: draw, team2 },
+} = game;
+console.log(`Odds: ${team1}, Draw: ${draw}, Team2: ${team2}`);
+
+// 6. Write a function ('printGoals') that receives an arbitrary number of player names (NOT an array) and prints each of them to the console, along with the number of goals that were scored in total (number of player names passed in)
+const printGoals = (...players) => {
+  // console.log(players);
+  // console.log(`${players.length} goals were scored.`);
+};
+
+// printGoals('Muller', 'Sweinsteiger', 'Goretzka', 'Gotze', 'Reus');
+
+// 7. The team with the lower odd is more likely to win. Print to the console which team is more likely to win, WITHOUT using an if/else statement or the ternary operator.
+
+team1 < team2 &&
+  console.log(
+    `Team 1 is more likely to win with ${team1} odds, which is better than team 2's ${team2}.`
+  );
+team2 < team1 &&
+  console.log(
+    `Team 2 is more likely to win with ${team2} odds, which is better than team 1's ${team1}.`
+  );
