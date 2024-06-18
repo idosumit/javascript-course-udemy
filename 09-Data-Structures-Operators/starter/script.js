@@ -491,8 +491,6 @@ const restaurant = {
   },
 };
 
-*/
-
 // ============================================ OPTIONAL CHAINING (.?)===================================================
 
 //example used:
@@ -568,3 +566,81 @@ const users = [{ name: 'Charles', email: 'charleszero@rings.com' }];
 
 console.log(users[0]?.name ?? 'user array empty'); // Charles
 console.log(users[1]?.name ?? 'user array empty'); // user array empty
+
+*/
+
+// ============================================ LOOPING OBJECTS: OBJECT KEYS, VALUES, ENTRIES ===================================================
+
+//example used:
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+const openingHours = {
+  [weekdays[3]]: {
+    open: 12,
+    close: 22,
+  },
+  [weekdays[6]]: {
+    open: 11,
+    close: 23,
+  },
+  sat: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
+// console.log(openingHours);
+
+const restaurant = {
+  name: 'Classico Italiano',
+  location: 'Via Angelo Tavanti 23, Firenze, Italy',
+  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+
+  // ES6 enhanced object literals
+  openingHours,
+
+  order(starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
+  orderDelivery({ starterIndex = 1, mainIndex = 0, time = '20:00', address }) {
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}.`
+    );
+  },
+
+  // adding method here for spread operator
+  orderPasta(ing1, ing2, ing3) {
+    console.log(`Here is your pasta with ${ing1}, ${ing2}, and ${ing3}.`);
+  },
+
+  // adding yet another method here for rest pattern
+  orderPizza: (mainIngredient, ...otherIngredients) => {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+  },
+};
+
+// looping over property names
+const properties = Object.keys(openingHours);
+console.log(properties); // [ 'thu', 'sun', 'sat' ]
+
+let openStr = `We are open for ${properties.length} days: `;
+
+for (const day of properties) {
+  openStr += `${day}, `;
+}
+
+console.log(openStr);
+
+// property values
+const values = Object.values(openingHours);
+console.log(values);
+
+// Entrie object
+const entries = Object.entries(openingHours);
+// console.log(entries);
+
+for (const [key, { open, close }] of entries) {
+  console.log(`On ${key}, we open at ${open} and close at ${close}.`);
+}
