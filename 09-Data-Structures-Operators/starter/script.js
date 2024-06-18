@@ -376,7 +376,6 @@ restaurant.orderPizza('mushroom', 'pineapple', 'olive', 'lettuce'); // Output:
 // [ 'pineapple', 'olive', 'lettuce' ]
 
 restaurant.orderPizza('mushroom');
-*/
 
 // ============================================ FOR-OF LOOP ===================================================
 // Example from above:
@@ -438,3 +437,58 @@ for (const i of menu) console.log(i);
 for (const [counter, element] of menu.entries()) {
   console.log(`${counter + 1}: ${element}`);
 }
+
+*/
+
+// ============================================ ENHANCED OBJECT LITERALS ===================================================
+
+// example used:
+
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+const openingHours = {
+  [weekdays[3]]: {
+    open: 12,
+    close: 22,
+  },
+  [`day-${2 + 2}`]: {
+    open: 11,
+    close: 23,
+  },
+  sat: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
+console.log(openingHours);
+
+const restaurant = {
+  name: 'Classico Italiano',
+  location: 'Via Angelo Tavanti 23, Firenze, Italy',
+  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+
+  // ES6 enhanced object literals
+  openingHours,
+
+  order(starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
+  orderDelivery({ starterIndex = 1, mainIndex = 0, time = '20:00', address }) {
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}.`
+    );
+  },
+
+  // adding method here for spread operator
+  orderPasta(ing1, ing2, ing3) {
+    console.log(`Here is your pasta with ${ing1}, ${ing2}, and ${ing3}.`);
+  },
+
+  // adding yet another method here for rest pattern
+  orderPizza: (mainIngredient, ...otherIngredients) => {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+  },
+};
