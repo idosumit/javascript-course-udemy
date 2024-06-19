@@ -643,7 +643,57 @@ for (const [key, { open, close }] of entries) {
   console.log(`On ${key}, we open at ${open} and close at ${close}.`);
 }
 
-*/
+
 
 // ============================================ CODING CHALLENGE #2 ===================================================
 // Solution at: 09-Data-Structures-Operators/starter/coding-challenge-2.js
+
+*/
+
+// ============================================ SETS ===================================================
+
+//++++++++++ creating a new set
+
+const ordersSet = new Set([
+  'Pasta',
+  'Pizza',
+  'Pizza',
+  'Risotto',
+  'Pasta',
+  'Pizza',
+]);
+
+console.log(ordersSet); // Set(3) { 'Pasta', 'Pizza', 'Risotto' } => no duplicates
+
+console.log(new Set('Charles')); // Set(7) { 'C', 'h', 'a', 'r', 'l', 'e', 's' }
+
+//+++++++++ Size
+console.log(ordersSet.size); // 3
+
+//+++++++++ checking availability of an element
+console.log(ordersSet.has('Pizza')); // true
+
+//+++++++++ adding elements
+ordersSet.add('Garlic Bread', 'Garlic Bread');
+console.log(ordersSet); // Set(4) { 'Pasta', 'Pizza', 'Risotto', 'Garlic Bread' }
+
+//+++++++++ deleting elements
+ordersSet.delete('Risotto');
+console.log(ordersSet); // Set(3) { 'Pasta', 'Pizza', 'Garlic Bread' }
+
+//+++++++++ deleting everything
+// ordersSet.clear();
+// console.log(ordersSet); // Set(0) {}
+
+//+++++++++ looping
+for (const order of ordersSet) console.log(order);
+
+//+++++++++++++ Example
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique); // [ 'Waiter', 'Chef', 'Manager' ]
+console.log(
+  new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']).size
+); // 3
+
+console.log(new Set('charlesbarkely').size); // 10
