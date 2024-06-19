@@ -567,8 +567,6 @@ const users = [{ name: 'Charles', email: 'charleszero@rings.com' }];
 console.log(users[0]?.name ?? 'user array empty'); // Charles
 console.log(users[1]?.name ?? 'user array empty'); // user array empty
 
-*/
-
 // ============================================ LOOPING OBJECTS: OBJECT KEYS, VALUES, ENTRIES ===================================================
 
 //example used:
@@ -644,3 +642,8 @@ const entries = Object.entries(openingHours);
 for (const [key, { open, close }] of entries) {
   console.log(`On ${key}, we open at ${open} and close at ${close}.`);
 }
+
+*/
+
+// ============================================ CODING CHALLENGE #2 ===================================================
+// Solution at: 09-Data-Structures-Operators/starter/coding-challenge-2.js
