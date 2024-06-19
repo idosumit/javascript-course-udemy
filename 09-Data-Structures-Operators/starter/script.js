@@ -648,8 +648,6 @@ for (const [key, { open, close }] of entries) {
 // ============================================ CODING CHALLENGE #2 ===================================================
 // Solution at: 09-Data-Structures-Operators/starter/coding-challenge-2.js
 
-*/
-
 // ============================================ SETS ===================================================
 
 //++++++++++ creating a new set
@@ -697,3 +695,53 @@ console.log(
 ); // 3
 
 console.log(new Set('charlesbarkely').size); // 10
+
+*/
+
+// ============================================ MAPS ===================================================
+
+const rest = new Map();
+rest.set('name', 'Classico Italiano');
+rest.set(1, 'Florence, Italy');
+rest.set(2, 'Lisbon, Portugal');
+console.log(rest.set(2, 'Lisbon, Portugal'));
+
+//+++++++ set chaining
+rest
+  .set('categories', ['Italian', 'Pizzeria', 'Veg', 'Organic'])
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'we are open')
+  .set(false, 'we are closed');
+console.log(rest);
+console.log(rest.get('name')); // Classico Italiano
+console.log(rest.get(1)); // Florence, Italy
+
+const time = 21;
+console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+
+//+++++++ checking if a map contains a certain key
+console.log(rest.has('categories'));
+
+//+++++++ deleting a key
+rest.delete(2);
+console.log(rest);
+
+//+++++++ size
+console.log(rest.size); // 7
+
+//+++++++ clear all elements
+// rest.clear();
+// console.log(rest); // Map(0) {}
+
+//+++++++ using arrays/objects as map keys
+rest.set([1, 2], 'test');
+console.log(rest, rest.size);
+console.log(rest.get([1, 2])); // undefined
+// so instead, we can do:
+const arr = [1, 2];
+rest.set(arr, 'test');
+console.log(rest.get(arr)); // test
+
+//+++++++ DOM
+// rest.set(document.querySelector('h1'), 'Heading');
