@@ -797,7 +797,10 @@ console.log([...question.entries()]);
 console.log([...question.keys()]);
 console.log([...question.values()]);
 
-*/
-
 // ============================================ WHICH DATA STRUCTURE TO USE? ===================================================
 // look at the illustration: helpful-illustrations/arrays v sets + objects v maps.png
+
+*/
+
+// ============================================ CODING CHALLENGE #3 ===================================================
+// solution is in: 09-Data-Structures-Operators/starter/coding-challenge-3.js
