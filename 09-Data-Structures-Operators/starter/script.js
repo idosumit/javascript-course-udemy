@@ -955,18 +955,18 @@ document.body.append(document.createElement('button'));
 
 document.querySelector('button').addEventListener('click', function () {
   const text = document.querySelector('textarea').value;
-  console.log(`text:\n${text}`);
+  // console.log(`text:\n${text}`);
   const rows = text.split('\n');
-  console.log(`rows:\n${rows}`);
+  // console.log(`rows:\n${rows}`);
 
-  for (const row of rows) {
+  for (const [i, row] of rows.entries()) {
     const [first, second] = row.toLowerCase().trim().split('_');
-    console.log('first:', first);
-    console.log('second:', second);
+    // console.log('first:', first);
+    // console.log('second:', second);
     const output = `${first}${second.replace(
       second[0],
       second[0].toUpperCase()
     )}`;
-    console.log(output);
+    console.log(`${output.padEnd(20)}${'✅'.repeat(i + 1)}`);
   }
 });
