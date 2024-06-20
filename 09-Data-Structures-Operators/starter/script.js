@@ -800,7 +800,41 @@ console.log([...question.values()]);
 // ============================================ WHICH DATA STRUCTURE TO USE? ===================================================
 // look at the illustration: helpful-illustrations/arrays v sets + objects v maps.png
 
-*/
-
 // ============================================ CODING CHALLENGE #3 ===================================================
 // solution is in: 09-Data-Structures-Operators/starter/coding-challenge-3.js
+
+*/
+
+// ============================================ WORKING WITH STRINGS - PART 1 ===================================================
+
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+
+console.log(plane[0]); // A
+console.log(plane[1]); // 3 (not a number, a string 3)
+console.log('B737'[2]); // 3
+console.log(airline.length); // 16, number
+
+console.log(airline.indexOf('r')); // 6
+console.log(airline.lastIndexOf('r')); // 10
+console.log(airline.indexOf('Portugal')); // 8
+
+//+++++++++ slicing
+console.log(airline.slice(4)); // Air Portugal
+console.log(airline.slice(4, 7)); // Air
+
+console.log(airline.slice(0, airline.indexOf(' '))); // TAP
+console.log(airline.slice(airline.lastIndexOf(' ') + 1)); // Portugal
+console.log(airline.slice(-2)); // al
+console.log(airline.slice(1, -1)); // AP Air Portuga
+
+const checkMiddleSeat = function (seat) {
+  // B & E are the middle seats
+  const s = seat.slice(-1);
+  if (s === 'B' || s === 'E') console.log(s, 'You got the middle seat');
+  else console.log(s, 'you got lucky! not a middle seat');
+};
+
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3E');
