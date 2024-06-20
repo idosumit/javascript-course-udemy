@@ -837,8 +837,6 @@ checkMiddleSeat('11B');
 checkMiddleSeat('23C');
 checkMiddleSeat('3E');
 
-*/
-
 // ============================================ WORKING WITH STRINGS - PART 2 ===================================================
 const airline = 'TAP Air Portugal';
 console.log(airline.toLowerCase()); // tap air portugal
@@ -898,3 +896,55 @@ const checkBaggage = function (items) {
 
 checkBaggage('I got some books and a butter knife, no biggie'); // Not allowed
 checkBaggage('I have the bomb that will destroy this plane'); // welcome!
+
+*/
+
+// ============================================ WORKING WITH STRINGS - PART 3 ===================================================
+
+//++++++++++ split and join
+console.log('a+very+nice+string'.split('+')); // [ 'a', 'very', 'nice', 'string' ]
+
+console.log('Charles ZeroRingsBarkley'.split(' ')); // [ 'Charles', 'ZeroRingsBarkley' ]
+
+const [firstName, lastName] = 'Charles ZeroRingsBarkley'.split(' ');
+
+const newName = ['Sir', firstName, lastName.toUpperCase()].join(' ');
+console.log(newName); // Sir Charles ZERORINGSBARKLEY
+
+const capitalizeName = function (name) {
+  const names = name.split(' ');
+  const namesUpper = [];
+
+  for (const namaye of names) {
+    // namesUpper.push(namaye[0].toUpperCase() + namaye.slice(1)); OR
+    namesUpper.push(namaye.replace(namaye[0], namaye[0].toUpperCase()));
+  }
+  console.log(namesUpper.join(' '));
+};
+capitalizeName('jessica ann smith davis');
+
+//+++++++ Padding a string
+const message = 'Go to gate 23!';
+console.log(message.padStart(25, '+')); // +++++++++++Go to gate 23!
+console.log(message.padEnd(25, '+')); // Go to gate 23!+++++++++++
+console.log(message.padStart(20, '-').padEnd(26, '==')); // ------Go to gate 23!======
+
+// real world example
+const maskCreditCard = function (number) {
+  const str = number + '';
+  const last = str.slice(-4);
+  return last.padStart(str.length, '*');
+};
+
+console.log(maskCreditCard(4644574335673434));
+console.log(maskCreditCard('3457123466453434342'));
+
+//++++++++ repeat method
+const message2 = 'Bad weather... All departures delayed... ';
+console.log(message2.repeat(5));
+
+const planesInLine = function (n) {
+  console.log(`There are ${n} planes in line ${'🛩️'.repeat(n)}`);
+};
+
+planesInLine(5);
