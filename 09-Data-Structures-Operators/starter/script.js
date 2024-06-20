@@ -897,8 +897,6 @@ const checkBaggage = function (items) {
 checkBaggage('I got some books and a butter knife, no biggie'); // Not allowed
 checkBaggage('I have the bomb that will destroy this plane'); // welcome!
 
-*/
-
 // ============================================ WORKING WITH STRINGS - PART 3 ===================================================
 
 //++++++++++ split and join
@@ -948,3 +946,27 @@ const planesInLine = function (n) {
 };
 
 planesInLine(5);
+
+*/
+
+// ============================================ CODING CHALLENGE #4 ===================================================
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+
+document.querySelector('button').addEventListener('click', function () {
+  const text = document.querySelector('textarea').value;
+  console.log(`text:\n${text}`);
+  const rows = text.split('\n');
+  console.log(`rows:\n${rows}`);
+
+  for (const row of rows) {
+    const [first, second] = row.toLowerCase().trim().split('_');
+    console.log('first:', first);
+    console.log('second:', second);
+    const output = `${first}${second.replace(
+      second[0],
+      second[0].toUpperCase()
+    )}`;
+    console.log(output);
+  }
+});
