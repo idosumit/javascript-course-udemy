@@ -803,8 +803,6 @@ console.log([...question.values()]);
 // ============================================ CODING CHALLENGE #3 ===================================================
 // solution is in: 09-Data-Structures-Operators/starter/coding-challenge-3.js
 
-*/
-
 // ============================================ WORKING WITH STRINGS - PART 1 ===================================================
 
 const airline = 'TAP Air Portugal';
@@ -838,3 +836,65 @@ const checkMiddleSeat = function (seat) {
 checkMiddleSeat('11B');
 checkMiddleSeat('23C');
 checkMiddleSeat('3E');
+
+*/
+
+// ============================================ WORKING WITH STRINGS - PART 2 ===================================================
+const airline = 'TAP Air Portugal';
+console.log(airline.toLowerCase()); // tap air portugal
+console.log(airline.toUpperCase()); // TAP AIR PORTUGAL
+
+// fix capitalization in name
+const passenger = 'cHarLes';
+const passengerUpper = passenger.toUpperCase();
+const passengerCorrect =
+  passengerUpper[0] + passengerUpper.slice(1).toLowerCase();
+console.log(passengerCorrect);
+
+// comparing emails
+const email = 'charleszero@rings.com';
+const loginEmail = ' Charleszero@Rings.Com \n';
+
+// const lowerEmail = loginEmail.toLowerCase();
+// const trimmedEmailWithoutWhitespace = lowerEmail.trim();
+// console.log(trimmedEmailWithoutWhitespace); // charleszero@rings.com
+
+// alternatively, we can do it all in 1 step
+const normalizedEmail = loginEmail.toLowerCase().trim();
+console.log(normalizedEmail);
+console.log(email === normalizedEmail);
+
+//++++++++ Replace parts of strings
+const priceGB = '288,97£';
+const priceUS = priceGB.replace('£', '$').replace(',', '.');
+console.log(priceUS);
+
+const announcement =
+  'All passengers come to boarding door 23. Boarding door 23!';
+
+console.log(announcement.replaceAll('door', 'gate'));
+
+// booleans
+const plane = 'Airbus A320neo';
+console.log(plane.includes('A320')); // true
+console.log(plane.includes('Boeing')); //false
+
+console.log(plane.startsWith('Air')); // true
+console.log(plane.startsWith('A')); // true
+
+if (plane.startsWith('Airbus') && plane.endsWith('neo')) {
+  console.log('part of the new airbus family');
+}
+
+// practice
+const checkBaggage = function (items) {
+  const baggage = items.toLowerCase();
+  if (baggage.includes('knife') || baggage.includes('gun')) {
+    console.log('Not allowed');
+  } else {
+    console.log('welcome!');
+  }
+};
+
+checkBaggage('I got some books and a butter knife, no biggie'); // Not allowed
+checkBaggage('I have the bomb that will destroy this plane'); // welcome!
