@@ -744,8 +744,6 @@ console.log(rest.get(arr)); // test
 //+++++++ DOM
 // rest.set(document.querySelector('h1'), 'Heading');
 
-*/
-
 // ============================================ MAPS: ITERATION ===================================================
 
 // ++++ there is another method for iterating maps other than .set
@@ -798,3 +796,8 @@ console.log([...question]);
 console.log([...question.entries()]);
 console.log([...question.keys()]);
 console.log([...question.values()]);
+
+*/
+
+// ============================================ WHICH DATA STRUCTURE TO USE? ===================================================
+// look at the illustration: helpful-illustrations/arrays v sets + objects v maps.png
