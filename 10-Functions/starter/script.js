@@ -221,6 +221,28 @@ const addVAT2 = addTaxRate(0.23);
 console.log(addVAT2(100));
 console.log(addVAT2(23));
 
-*/
 // ========================================== CODING CHALLENGE #1 =========================================
 // Solution at: 10-Functions/starter/script.js
+
+*/
+// ========================================== IMMEDIATELY INVOKED FUNCTION EXPRESSIONS (IIFE) =========================================
+const runOnce = () => {
+  console.log(`This will never run again`);
+};
+
+runOnce();
+
+// immediately invoked function expression (IIFE)
+(() => console.log(`This will never run again.`))();
+
+(function () {
+  console.log(`This will never run again.`);
+})();
+
+{
+  const isPriv = 23;
+  var notPriv = 46;
+}
+
+console.log(notPriv); // 46
+// console.log(isPriv); // error
