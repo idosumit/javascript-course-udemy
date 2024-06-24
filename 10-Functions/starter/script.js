@@ -118,7 +118,6 @@ const heyArrow = greetArrow(`What's popping`);
 heyArrow('Shaq');
 greetArrow("What's popping")('Draymond');
 
-*/
 // ========================================== CALL AND APPLY METHODS =========================================
 
 const lufthansa = {
@@ -221,3 +220,7 @@ const addTaxRate = rate => value => value + value * rate;
 const addVAT2 = addTaxRate(0.23);
 console.log(addVAT2(100));
 console.log(addVAT2(23));
+
+*/
+// ========================================== CODING CHALLENGE #1 =========================================
+// Solution at: 10-Functions/starter/script.js
