@@ -21,8 +21,6 @@ const createBoking = function (flightNum, numPassengers = 1, price = 199) {
 createBooking('LH123');
 createBooking('LH123', undefined, 100); // skipping a default parameter
 
-*/
-
 // ========================================== PASSING ARGUMENTS: VALUE V REFERENCE =========================================
 
 const flight = 'LH234';
@@ -58,3 +56,8 @@ newPassport(charles);
 checkIn(flight, charles);
 
 // ++++++++ IMPORTANT: JS does not have pass by reference. ONLY pass values. Even the object above was not passing by reference, it was value.
+
+*/
+
+// ========================================== FIRST-CLASS AND HIGHER-ORDER FUNCTIONS =========================================
+// illustrative description at: helpful-illustrations/first class functions v higher order functions.png
