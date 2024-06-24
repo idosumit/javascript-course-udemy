@@ -95,8 +95,6 @@ document.body.addEventListener('click', high5);
 
 ['Charles', 'Ernie', 'The Jet'].forEach(high5);
 
-*/
-
 // ========================================== FUNCTIONS RETURNING NEW FUNCTIONS =========================================
 
 const greet = function (greeting) {
@@ -119,3 +117,58 @@ const greetArrow = greeting => name => console.log(`${greeting} ${name}`);
 const heyArrow = greetArrow(`What's popping`);
 heyArrow('Shaq');
 greetArrow("What's popping")('Draymond');
+
+*/
+
+// ========================================== CALL AND APPLY METHODS =========================================
+
+const lufthansa = {
+  airline: 'Lufthansa',
+  iataCode: 'LH',
+  bookings: [],
+  // book: function(){}
+  book(flightNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}.`
+    );
+    this.bookings.push({ flight: `${this.iataCode}${flightNum}, ${name}` });
+  },
+};
+
+lufthansa.book(239, 'Charles Barkley');
+lufthansa.book(639, 'Jamal Musiala');
+// console.log(lufthansa);
+
+// +++ let's say there's a new airline now
+const eurowings = {
+  name: 'Eurowings',
+  iataCode: 'EW',
+  bookings: [],
+};
+
+const book = lufthansa.book;
+
+// book(23, 'Thomas Muller'); ==> this does not work
+
+//++++++++++++ Call method: this works
+book.call(eurowings, 23, 'Thomas Muller'); // here, 'this' has been set to eurowings because of the call method.
+
+book.call(lufthansa, 239, 'LeBron');
+console.log(lufthansa);
+
+const swiss = {
+  airline: 'Swiss Airlines',
+  iataCode: 'LX',
+  bookings: [],
+};
+
+book.call(swiss, 583, 'Kenny the Jet');
+console.log(swiss);
+
+// +++++++++++ Apply method
+const flightData = [583, 'Kai Havertz'];
+book.apply(swiss, flightData);
+console.log(swiss);
+
+// Instead of apply, however, we do the following a lot:
+book.call(swiss, ...flightData);
