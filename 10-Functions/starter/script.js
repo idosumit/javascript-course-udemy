@@ -119,7 +119,6 @@ heyArrow('Shaq');
 greetArrow("What's popping")('Draymond');
 
 */
-
 // ========================================== CALL AND APPLY METHODS =========================================
 
 const lufthansa = {
@@ -141,7 +140,7 @@ lufthansa.book(639, 'Jamal Musiala');
 
 // +++ let's say there's a new airline now
 const eurowings = {
-  name: 'Eurowings',
+  airline: 'Eurowings',
   iataCode: 'EW',
   bookings: [],
 };
@@ -172,3 +171,53 @@ console.log(swiss);
 
 // Instead of apply, however, we do the following a lot:
 book.call(swiss, ...flightData);
+
+// ========================================== BIND METHOD =========================================
+const bookEW = book.bind(eurowings);
+
+bookEW(23, 'Rafael Mike');
+const bookLH = book.bind(lufthansa);
+bookLH(33, 'Katt Williams');
+
+// going further to make the function even simpler
+const bookEW23 = book.bind(eurowings, 23);
+bookEW23('Harper Mason');
+bookEW23('Javier Pastore');
+
+// +++++++++++++++++++= situations for when we use bind methods
+// ++++++ with event listeners
+lufthansa.planes = 300;
+lufthansa.buyPlane = function () {
+  console.log(this);
+  this.planes++;
+  console.log(this.planes);
+};
+
+document
+  .querySelector('.buy')
+  .addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
+
+// Partial application
+
+const addTax = (rate, value) => value + value * rate;
+console.log(addTax(0.1, 200));
+
+const addVAT = addTax.bind(null, 0.23);
+// addVAT = value => value + value * 0.23;
+
+console.log(addVAT(100));
+console.log(addVAT(23));
+
+// Rewriting the above with functions
+
+const addTaxRate = rate => value => value + value * rate;
+// same as:
+// const addtaxFunction = function (rate){
+//   return function(value){
+//     return value + value * rate;
+//   };
+// };
+
+const addVAT2 = addTaxRate(0.23);
+console.log(addVAT2(100));
+console.log(addVAT2(23));
