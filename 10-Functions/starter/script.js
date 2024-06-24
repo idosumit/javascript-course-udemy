@@ -21,7 +21,6 @@ const createBoking = function (flightNum, numPassengers = 1, price = 199) {
 createBooking('LH123');
 createBooking('LH123', undefined, 100); // skipping a default parameter
 
-*/
 // ========================================== PASSING ARGUMENTS: VALUE V REFERENCE =========================================
 
 const flight = 'LH234';
@@ -60,11 +59,8 @@ checkIn(flight, charles);
 // 	1.	Primitives: In JavaScript, primitive values (like string, number, boolean, null, undefined, symbol, and bigint) are passed to functions by value. This means that the function gets a copy of the original value. Changes to the parameter inside the function do not affect the original value.
 //  2.	Objects: Objects (including arrays and functions) are passed by reference. This means that the function gets a reference to the original object, and changes to the object inside the function will affect the original object.
 
-/*
-
 // ========================================== FIRST-CLASS AND HIGHER-ORDER FUNCTIONS =========================================
 // illustrative description at: helpful-illustrations/first class functions v higher order functions.png
-
 
 // ========================================== FUNCTIONS ACCEPTING CALLBACK FUNCTIONS =========================================
 
@@ -98,4 +94,28 @@ const high5 = function () {
 document.body.addEventListener('click', high5);
 
 ['Charles', 'Ernie', 'The Jet'].forEach(high5);
+
 */
+
+// ========================================== FUNCTIONS RETURNING NEW FUNCTIONS =========================================
+
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+const greeterHey = greet('Hey');
+greeterHey('Charles');
+greeterHey('The Jet');
+
+// ++++++ doing this all in one go
+greet('Hello')('Ernie');
+
+// +++++++++++++++ rewriting the function above with only arrow function
+
+const greetArrow = greeting => name => console.log(`${greeting} ${name}`);
+
+const heyArrow = greetArrow(`What's popping`);
+heyArrow('Shaq');
+greetArrow("What's popping")('Draymond');
