@@ -71,7 +71,7 @@ const currencies = new Map([
   ['GBP', 'Pound sterling'],
 ]);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
@@ -111,8 +111,6 @@ console.log([...arr, ...arr2]);
 // +++++++++++++ JOIN
 console.log(letters.join(' - ')); // a - b - c - d - e - f - g - h - i - j
 
-*/
-
 // ======================================= ARRAYS: NEW `AT` METHOD ========================================
 
 const arr = [23, 11, 64];
@@ -125,3 +123,32 @@ console.log(arr.at(-1)); // 64
 
 // ++++++++ at method also works for strings
 console.log('charles'.at(-1)); // s
+
+*/
+
+// ======================================= LOOPING ARRAYS: FOREACH ========================================
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// ++++++ a for-of loop
+
+for (const [i, movement] of movements.entries()) {
+  if (movement > 0) {
+    console.log(`Movement ${i + 1}: You deposited ${Math.abs(movement)}.`);
+  } else {
+    console.log(`Movement ${i + 1}: You withdrew ${Math.abs(movement)}.`);
+  }
+}
+
+// +++++++++++++ achieving the same thing with forEach:
+console.log('-----------------forEach()----------------');
+
+// ORDER SHOULD ALWAYS BE: 1st parameter = current element (move here), 2nd parameter = current index (i here), 3rd = entire array we are looping over (arr here)
+movements.forEach(function (move, i, arr) {
+  if (move > 0) {
+    console.log(`Movement ${i + 1}: You deposited ${move}.`);
+  } else {
+    console.log(`Movement ${i + 1}: You withdrew ${move}.`);
+  }
+  console.log(arr); // [200, 450, -400, 3000, -650, -130, 70, 1300]
+});
