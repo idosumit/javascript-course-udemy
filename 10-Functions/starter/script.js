@@ -224,7 +224,6 @@ console.log(addVAT2(23));
 // ========================================== CODING CHALLENGE #1 =========================================
 // Solution at: 10-Functions/starter/script.js
 
-*/
 // ========================================== IMMEDIATELY INVOKED FUNCTION EXPRESSIONS (IIFE) =========================================
 const runOnce = () => {
   console.log(`This will never run again`);
@@ -246,3 +245,35 @@ runOnce();
 
 console.log(notPriv); // 46
 // console.log(isPriv); // error
+
+*/
+// ========================================== CLOSURES =========================================
+
+const secureBooking = () => {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+};
+
+const booker = secureBooking();
+booker();
+booker();
+booker();
+
+// A closure is the closed-over variable environment of the execution context in which a function was created, even after that
+// execution context is gone;
+
+// 👉 A closure gives a function access to all the variables of its parent function, even after that parent function has returned. The
+// function keeps a reference to its outer scope, which preserves the scope chain throughout time.
+
+// 👉 A closure makes sure that a function doesn’t lose connection to variables that existed at the function’s birth place.
+
+// 👉 A closure is like a backpack that a function carries around wherever it goes. This backpack has all the variables that were
+// present in the environment where the function was created.
+
+// example
+
+console.dir(booker);
