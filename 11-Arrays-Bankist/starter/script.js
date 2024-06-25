@@ -65,11 +65,11 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////
 // LECTURES
 
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-]);
+// const currencies = new Map([
+//   ['USD', 'United States dollar'],
+//   ['EUR', 'Euro'],
+//   ['GBP', 'Pound sterling'],
+// ]);
 
 // const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
@@ -124,8 +124,6 @@ console.log(arr.at(-1)); // 64
 // ++++++++ at method also works for strings
 console.log('charles'.at(-1)); // s
 
-*/
-
 // ======================================= LOOPING ARRAYS: FOREACH ========================================
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
@@ -151,4 +149,48 @@ movements.forEach(function (move, i, arr) {
     console.log(`Movement ${i + 1}: You withdrew ${move}.`);
   }
   console.log(arr); // [200, 450, -400, 3000, -650, -130, 70, 1300]
+});
+
+*/
+
+// ======================================= FOREACH FOR MAPS AND SETS ========================================
+
+const currencies = new Map([
+  ['USD', 'United States dollar'],
+  ['EUR', 'Euro'],
+  ['GBP', 'Pound sterling'],
+]);
+
+// +++++++ MAPS
+currencies.forEach(function (value, key, map) {
+  // just the same order as the array
+  console.log(`${key}: ${value}`);
+});
+
+// +++++++ SETS
+const currenciesButUnique = new Set(['USD', 'GBP', 'USD', 'EUR']);
+console.log(currenciesButUnique); // {'USD', 'GBP', 'EUR'}
+
+currenciesButUnique.forEach(function (value, key, map) {
+  console.log(`${key}: ${value}`);
+  // RESULT:
+  // USD: USD
+  // GBP: GBP
+  // EUR: EUR
+  // keys and values are the same??? why?
+  /*
+  Well, a set doesn't have keys! And it doesn't have indexes either. And so there is no value that would make sense for the key. So, essentially this key here makes no sense at all. It wouldn't even have to be there. And so the people who designed this forEach method for sets, they could have simply omitted the second argument, right? Well, if they did that, then this forEach would have been different from the others. And so that would then create confusion in developers, and therefore it was decided to keep the same signature.
+  
+  So basically, to keep the same three parameters in this callback function and simply to set the second one to the first one.
+
+  So we can just write value here as well, just to avoid that confusion. In fact, we can do the following:
+  */
+});
+
+// ++++++ better syntaxing for forEach with Sets:
+const currenciesButUniqueAgain = new Set(['USD', 'GBP', 'USD', 'EUR']);
+console.log(currenciesButUniqueAgain); // {'USD', 'GBP', 'EUR'}
+
+currenciesButUnique.forEach(function (value, _, map) {
+  console.log(`${value}: ${value}`);
 });
