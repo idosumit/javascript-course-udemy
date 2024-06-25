@@ -74,3 +74,38 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+
+// ======================================= ARRAYS ========================================
+
+let arr = ['a', 'b', 'c', 'd', 'e'];
+
+// ++++++++++++ array slice method (does not mutate)
+
+console.log(arr.slice(2)); // ['c', 'd', 'e']
+console.log(arr.slice(1, 4)); // ['b', 'c', 'd']
+console.log(arr.slice(-2)); // ['d', 'e']
+console.log(arr.slice(1, -1)); // ['b', 'c', 'd']
+console.log(arr.slice()); // ['a', 'b', 'c', 'd', 'e']
+console.log([...arr]); // // ['a', 'b', 'c', 'd', 'e']
+
+// ++++++++++++ array splice method (does mutate)
+// console.log(arr.splice(2)); // ['c', 'd', 'e']
+arr.splice(-1);
+console.log(arr); // ['a', 'b', 'c', 'd']
+
+// why??? because splice mutates the original array. slice could not do that, because it cannot mutate the original array. slice only creates copies.
+
+// ++++++++++++ array reverse method (does mutate)
+arr = ['a', 'b', 'c', 'd', 'e'];
+const arr2 = ['j', 'i', 'h', 'g', 'f'];
+console.log(arr2.reverse());
+console.log(arr2); // ['f', 'g', 'h', 'i', 'j'] --> this gets mutated
+
+// ++++++++++++ CONCAT (does NOT mutate)
+const letters = arr.concat(arr2);
+console.log(letters); // ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+// or we could also do the spread operator to get the exact same outcome:
+console.log([...arr, ...arr2]);
+
+// +++++++++++++ JOIN
+console.log(letters.join(' - ')); // a - b - c - d - e - f - g - h - i - j
