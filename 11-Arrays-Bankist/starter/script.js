@@ -75,6 +75,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
+/*
 // ======================================= ARRAYS ========================================
 
 let arr = ['a', 'b', 'c', 'd', 'e'];
@@ -109,3 +110,18 @@ console.log([...arr, ...arr2]);
 
 // +++++++++++++ JOIN
 console.log(letters.join(' - ')); // a - b - c - d - e - f - g - h - i - j
+
+*/
+
+// ======================================= ARRAYS: NEW `AT` METHOD ========================================
+
+const arr = [23, 11, 64];
+console.log(arr[0]);
+console.log(arr.at(0)); // same as above
+
+// but why the at method anyway?????
+// it is useful for getting the last element
+console.log(arr.at(-1)); // 64
+
+// ++++++++ at method also works for strings
+console.log('charles'.at(-1)); // s
