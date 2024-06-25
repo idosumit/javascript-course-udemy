@@ -277,3 +277,40 @@ booker();
 // example
 
 console.dir(booker);
+
+//+++++++++++++ MORE CLOSURES
+let f;
+const g = () => {
+  const a = 23;
+  f = () => {
+    console.log(a * 2);
+  };
+};
+
+const h = () => {
+  const b = 777;
+  f = () => {
+    console.log(b * 2);
+  };
+};
+
+g();
+f();
+
+// Reassigning f function
+h();
+f();
+
+// Example 2
+const boardPassengers = (n, wait) => {
+  const perGroup = n / 3;
+
+  setTimeout(function () {
+    `We are now boarding all ${n} passengers.`;
+    console.log(`There are 3 groups, each with ${perGroup} passengers.`);
+  }, wait * 1000);
+  console.log(`will start boarding in ${wait} seconds.`);
+};
+
+const perGroup = 1000; // won't give us 1000 but 60
+boardPassengers(180, 3);
