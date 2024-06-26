@@ -225,7 +225,53 @@ currenciesButUnique.forEach(function (value, _, map) {
 
 // Solution at: 11-Arrays-Bankist/starter/coding-challenge-1.js
 
-*/
-
 // ======================================= DATA TRANSFORMATIONS: MAP, FILTER, REDUCE ========================================
 // helpful illustration at: helpful-illustrations/transformations - map, filter, reduce.png
+
+*/
+
+// ======================================= DATA TRANSFORMATION: MAP ========================================
+
+// let's assume the following is in euros
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const eurToUsd = 1.1; // just an assumption
+
+// const movementsUSD = movements.map(function (element) {
+//   return element * eurToUsd;
+// });
+
+// OR using the arrow function
+const movementsUSD = movements.map(element => element * eurToUsd);
+
+console.log(movements);
+console.log(movementsUSD);
+
+const numbers = [1, 2, 3, 4];
+const doubled = numbers.map(function (num) {
+  return num * 2;
+});
+
+console.log(doubled); // Output: [2, 4, 6, 8]
+
+// // doing the same with for..of loop:
+// const movementsUSDForOfLoop = [];
+// for (const element of movements) {
+//   movementsUSDForOfLoop.push(element * eurToUsd);
+// }
+// console.log(movementsUSDForOfLoop); // exactly the same
+
+// +++++++ using this to loop over the movements array like above
+
+//example used:
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const movementsDescriptions = movements.map(
+  // we didn't even need to add the 3rd parameter of 'array' here (in the arrow function below) since the map doesn't need us to do it
+  (element, index) =>
+    `Movement ${index + 1}: You ${
+      element > 0 ? 'deposited' : 'withdrew'
+    } ${Math.abs(element)}.`
+);
+
+console.log(movementsDescriptions);
