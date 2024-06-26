@@ -221,8 +221,11 @@ currenciesButUnique.forEach(function (value, _, map) {
   console.log(`${value}: ${value}`);
 });
 
-*/
-
 // ======================================= CODING CHALLENGE #1 ========================================
 
 // Solution at: 11-Arrays-Bankist/starter/coding-challenge-1.js
+
+*/
+
+// ======================================= DATA TRANSFORMATIONS: MAP, FILTER, REDUCE ========================================
+// helpful illustration at: helpful-illustrations/transformations - map, filter, reduce.png
