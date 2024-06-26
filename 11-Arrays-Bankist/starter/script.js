@@ -2,7 +2,7 @@
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
-// BANKIST APP
+// BANKIST APP ++++++++++++++
 
 // Data
 const account1 = {
@@ -60,6 +60,35 @@ const inputTransferAmount = document.querySelector('.form__input--amount');
 const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
+
+// ============================== CREATING DOM ELEMENTS ==============================
+
+const displayMovements = function (movements) {
+  // this to clear the container first in case there are already some movements displayed
+  containerMovements.innerHTML = '';
+
+  // then we loop over the movements array and create html displays for each movement
+  movements.forEach(function (mov, i) {
+    // we need to determine if the movement is a deposit or a withdrawal
+    const type = mov > 0 ? 'deposit' : 'withdrawal';
+
+    // then we create the html for each movement (movement means how the money flows in or out of the account. mov is a term for current element in the array or object)
+    const html = `
+    <div class="movements__row">
+          <div class="movements__type movements__type--${type}">${
+      i + 1
+    } ${type}</div>
+          <div class="movements__value">${mov}</div>
+    </div>
+    `;
+
+    // below is linking the html const we have created to the containerMovements div (div = division / section) in the html file
+    // what containerMovements.insertAdjacentHTML('afterbegin', html); does is that it inserts the html into the containerMovements div, but it does so at the beginning of the div. So, the first movement will be at the top of the list.
+    containerMovements.insertAdjacentHTML('afterbegin', html);
+  });
+};
+
+displayMovements(account1.movements);
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -151,8 +180,6 @@ movements.forEach(function (move, i, arr) {
   console.log(arr); // [200, 450, -400, 3000, -650, -130, 70, 1300]
 });
 
-*/
-
 // ======================================= FOREACH FOR MAPS AND SETS ========================================
 
 const currencies = new Map([
@@ -178,13 +205,12 @@ currenciesButUnique.forEach(function (value, key, map) {
   // GBP: GBP
   // EUR: EUR
   // keys and values are the same??? why?
-  /*
-  Well, a set doesn't have keys! And it doesn't have indexes either. And so there is no value that would make sense for the key. So, essentially this key here makes no sense at all. It wouldn't even have to be there. And so the people who designed this forEach method for sets, they could have simply omitted the second argument, right? Well, if they did that, then this forEach would have been different from the others. And so that would then create confusion in developers, and therefore it was decided to keep the same signature.
   
-  So basically, to keep the same three parameters in this callback function and simply to set the second one to the first one.
+  // Well, a set doesn't have keys! And it doesn't have indexes either. And so there is no value that would make sense for the key. So, essentially this key here makes no sense at all. It wouldn't even have to be there. And so the people who designed this forEach method for sets, they could have simply omitted the second argument, right? Well, if they did that, then this forEach would have been different from the others. And so that would then create confusion in developers, and therefore it was decided to keep the same signature.
+  
+  // So basically, to keep the same three parameters in this callback function and simply to set the second one to the first one.
 
-  So we can just write value here as well, just to avoid that confusion. In fact, we can do the following:
-  */
+  // So we can just write value here as well, just to avoid that confusion. In fact, we can do the following:
 });
 
 // ++++++ better syntaxing for forEach with Sets:
@@ -194,3 +220,5 @@ console.log(currenciesButUniqueAgain); // {'USD', 'GBP', 'EUR'}
 currenciesButUnique.forEach(function (value, _, map) {
   console.log(`${value}: ${value}`);
 });
+
+*/
