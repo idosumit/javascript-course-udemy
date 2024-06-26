@@ -222,3 +222,7 @@ currenciesButUnique.forEach(function (value, _, map) {
 });
 
 */
+
+// ======================================= CODING CHALLENGE #1 ========================================
+
+// Solution at: 11-Arrays-Bankist/starter/coding-challenge-1.js
