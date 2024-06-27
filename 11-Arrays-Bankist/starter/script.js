@@ -228,8 +228,6 @@ currenciesButUnique.forEach(function (value, _, map) {
 // ======================================= DATA TRANSFORMATIONS: MAP, FILTER, REDUCE ========================================
 // helpful illustration at: helpful-illustrations/transformations - map, filter, reduce.png
 
-*/
-
 // ======================================= DATA TRANSFORMATION: MAP ========================================
 
 // let's assume the following is in euros
@@ -275,3 +273,104 @@ const movementsDescriptions = movements.map(
 );
 
 console.log(movementsDescriptions);
+
+*/
+
+// ================================== USING MAPS & FOR-EACH METHOD TO COMPUTE USERNAMES ==================================
+
+//++++++++++ let's try to get first letter of each word from below for the username:
+// const user = 'Steven Thomas Williams';
+
+// let's create a function first:
+const createUsernames = function (user) {
+  const username = user
+    .toLowerCase()
+    .split(' ')
+    .map(name => name[0])
+    .join('');
+  return username;
+  // here, we are simply looping over the array and taking first letters (with map!):
+};
+
+console.log(createUsernames('Steven Thomas Williams')); // stw
+
+// +++++++++++ using for...each method because we do NOT want to create a new array but want to modify the array we'll receive as the input (basically side effects)
+
+// example used (from the top):
+// const accounts = [account1, account2, account3, account4];
+
+const createUsernamesForAccounts = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+
+createUsernamesForAccounts(accounts);
+console.log(accounts); // Result below (username property got added to the original accounts array)
+// [
+//   {
+//     "owner": "Jonas Schmedtmann",
+//     "movements": [
+//         200,
+//         450,
+//         -400,
+//         3000,
+//         -650,
+//         -130,
+//         70,
+//         1300
+//     ],
+//     "interestRate": 1.2,
+//     "pin": 1111,
+//     "username": "js"
+// },
+// {
+//     "owner": "Jessica Davis",
+//     "movements": [
+//         5000,
+//         3400,
+//         -150,
+//         -790,
+//         -3210,
+//         -1000,
+//         8500,
+//         -30
+//     ],
+//     "interestRate": 1.5,
+//     "pin": 2222,
+//     "username": "jd"
+// },
+// {
+//     "owner": "Steven Thomas Williams",
+//     "movements": [
+//         200,
+//         -200,
+//         340,
+//         -300,
+//         -20,
+//         50,
+//         400,
+//         -460
+//     ],
+//     "interestRate": 0.7,
+//     "pin": 3333,
+//     "username": "stw"
+// },
+// {
+//     "owner": "Sarah Smith",
+//     "movements": [
+//         430,
+//         1000,
+//         700,
+//         50,
+//         90
+//     ],
+//     "interestRate": 1,
+//     "pin": 4444,
+//     "username": "ss"
+// }
+// ]
