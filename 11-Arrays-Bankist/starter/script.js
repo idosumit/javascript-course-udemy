@@ -373,8 +373,6 @@ console.log(accounts); // Result below (username property got added to the origi
 // }
 // ]
 
-*/
-
 // ================================== THE FILTER METHOD ==================================
 //example used:
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
@@ -403,3 +401,79 @@ for (const element of withdrawals)
   if (element < 0) withdrawalUsingForOfLoop.push(element);
 
 console.log(withdrawalUsingForOfLoop); // [-400, -650, -130]
+
+*/
+
+// ================================== THE REDUCE METHOD ===================================
+
+//example used:
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+console.log(movements);
+
+// cumulative value or accumulator is the "value" that keeps being added to the existing "value" after each iteration, so basically a CUMULATIVE VALUE for understanding
+const balance = movements.reduce(function (
+  cumulativeValue,
+  currentValue,
+  index,
+  array
+) {
+  console.log(
+    `Iteration number defined by index ${index} led to the cumulative value of ${cumulativeValue}. The current value that the loop will reduce (has not yet done it yet) is ${currentValue}.`
+  );
+  return cumulativeValue + currentValue;
+},
+0);
+// here, 0 is the initial value of the cumulative value parameter
+
+console.log(balance);
+
+// ++++++++++++++++ exact same with the arrow function (=>)
+const balanceWithArrowFunction = movements.reduce(
+  (cumulativeValue, currentValue) => cumulativeValue + currentValue,
+  0
+);
+
+console.log('with the arrow function =>', balanceWithArrowFunction); // with the arrow function => 3840
+
+// ++++++++++++++++ doing the same thing with the for...of loop
+let balanceWithForOfLoop = 0; // initialization
+for (const element of movements) balanceWithForOfLoop += element;
+console.log(balanceWithForOfLoop); // 3840
+
+// +++++++++++++++============ Now, I'm going back to `const createUsernamesForAccounts` that I had created 1 hour ago to use this transformation I've learned. Copied and pasted below:
+
+// example used (from the top):
+// const accounts = [account1, account2, account3, account4];
+
+const createUsernamesForAccounts = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+
+createUsernamesForAccounts(accounts);
+
+// From here is new code:
+const calcDisplayBalance = function (elements) {
+  const balance = elements.reduce(
+    (cumulativeValue, element) => cumulativeValue + element,
+    0
+  );
+  // now, let's add code that will display this calculated balance to the actual webpage (this hasn't yet been called btw)
+  labelBalance.textContent = `${balance} EUR`;
+};
+
+calcDisplayBalance(account1.movements); // now it has been called. this displays "3840 EUR"
+
+// +++++++++ ONE FINAL EXAMPLE OF .reduce()
+
+// Calculating maximum value from movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const max = movements.reduce((cumulativeValue, element) => {
+  if (cumulativeValue > element) return cumulativeValue;
+  else return element;
+}, movements[0]);
+console.log('maximum is:', max); // 3000
