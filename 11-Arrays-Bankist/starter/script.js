@@ -274,8 +274,6 @@ const movementsDescriptions = movements.map(
 
 console.log(movementsDescriptions);
 
-*/
-
 // ================================== USING MAPS & FOR-EACH METHOD TO COMPUTE USERNAMES ==================================
 
 //++++++++++ let's try to get first letter of each word from below for the username:
@@ -374,3 +372,34 @@ console.log(accounts); // Result below (username property got added to the origi
 //     "username": "ss"
 // }
 // ]
+
+*/
+
+// ================================== THE FILTER METHOD ==================================
+//example used:
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// +++++++++ with .filter()
+const deposits = movements.filter((element, index, array) => element > 0);
+console.log(movements); // [200, 450, -400, 3000, -650, -130, 70, 1300]
+console.log(deposits); // [200, 450, 3000, 70, 1300]
+
+// +++++++ using the for...of loop for the same:
+const depositsUsingForOfLoop = [];
+for (const element of movements)
+  if (element > 0) depositsUsingForOfLoop.push(element);
+console.log(depositsUsingForOfLoop); // [200, 450, 3000, 70, 1300]
+
+// ====++++++==== doing the same but for withdrawals now (negative values)
+
+// .filter method
+const withdrawals = movements.filter(element => element < 0); // I could add `index` and `array` after the input `element` too but they're optional. They aren't needed for this one so I omitted them
+
+console.log(withdrawals); // [-400, -650, -130]
+
+// for... of loop method
+const withdrawalUsingForOfLoop = [];
+for (const element of withdrawals)
+  if (element < 0) withdrawalUsingForOfLoop.push(element);
+
+console.log(withdrawalUsingForOfLoop); // [-400, -650, -130]
