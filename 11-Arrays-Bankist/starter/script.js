@@ -402,8 +402,6 @@ for (const element of withdrawals)
 
 console.log(withdrawalUsingForOfLoop); // [-400, -650, -130]
 
-*/
-
 // ================================== THE REDUCE METHOD ===================================
 
 //example used:
@@ -477,3 +475,8 @@ const max = movements.reduce((cumulativeValue, element) => {
   else return element;
 }, movements[0]);
 console.log('maximum is:', max); // 3000
+
+*/
+
+// ================================== CODING CHALLENGE #2 ===================================
+// solution at: 11-Arrays-Bankist/starter/coding-challenge-2.js
