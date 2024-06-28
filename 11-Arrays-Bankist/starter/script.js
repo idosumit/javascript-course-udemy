@@ -476,7 +476,60 @@ const max = movements.reduce((cumulativeValue, element) => {
 }, movements[0]);
 console.log('maximum is:', max); // 3000
 
-*/
-
 // ================================== CODING CHALLENGE #2 ===================================
 // solution at: 11-Arrays-Bankist/starter/coding-challenge-2.js
+
+*/
+
+// ================================== TRANSFORMATION: CHAINING ALL THE METHODS => MAP, FILTER, REDUCE ===================================
+
+// example used:
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const eurToUsd = 1.1;
+
+// PIPELINE
+const totalDepsitsUSD = movements
+  .filter(elements => elements > 0)
+  .map((elements, index, arr) => {
+    // console.log(arr);
+    return elements * eurToUsd;
+  })
+  .reduce((cumulativeValue, elements) => cumulativeValue + elements, 0);
+
+// by the way, we cannot do chaining if we use the .reduce() at the start.
+console.log(totalDepsitsUSD); // 5522.0000000000001
+
+// +++++++++ Now going back to our application
+const calcDisplaySummary = function (movements) {
+  const incomes = movements
+    .filter(element => element > 0)
+    .reduce((cumulativeValue, element) => cumulativeValue + element, 0);
+  labelSumIn.textContent = `${incomes}€`; // here, we knew the "IN " in green on the webpage consisted of "summary__value--in" with inspect element, and thus checking "summary__value--in" in our html shows that it is being stored in "labelSumIn" (row 42 of this file)
+
+  // doing the exact the same for out ("summary__value--out" with inspect element, so the html shows it's being stored in "labelSumOut" (row 43 of this document))
+  const outgoings = movements
+    .filter(element => element < 0)
+    .reduce((cumulativeValue, element) => cumulativeValue + element, 0);
+  labelSumOut.textContent = `${Math.abs(outgoings)}€`; // removes the minus sign, since we already know it's expense
+
+  //++++ interest
+  const interest = movements
+    .filter(element => element > 0)
+    .map((depositElement, index, arr) => {
+      console.log(depositElement, arr);
+      return (depositElement * 1.2) / 100; // returns the interest we will receive for each element inside movements (basically investment or INs), so let's say 200 becomes 2.4
+    })
+
+    // also reducing interests that are below 1
+    .filter((int, i, arr) => {
+      console.log(arr);
+      return int >= 1;
+    })
+    .reduce(
+      (cumulativeValue, interestElement) => cumulativeValue + interestElement,
+      0
+    );
+  labelSumInterest.textContent = `${interest}€`;
+};
+calcDisplaySummary(account1.movements);
