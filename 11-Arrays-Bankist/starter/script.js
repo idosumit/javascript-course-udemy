@@ -532,7 +532,29 @@ const calcDisplaySummary = function (movements) {
 };
 calcDisplaySummary(account1.movements);
 
-*/
-
 // ================================== CODING CHALLENGE #3 ===================================
 // solution at: 11-Arrays-Bankist/starter/coding-challenge-3.js
+
+*/
+
+// ================================== THE FIND METHOD ===================================
+// example used:
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const firstWithdrawal = movements.find(element => element < 0);
+console.log(movements);
+console.log(firstWithdrawal); // -400
+
+// +++++++++ MAIN DIFFERENCES BETWEEN FIND & FILTER METHODS:
+// ++++ 1. .filter() returns all the elements satisfying the condition, while .find() only returns the first element satisfying the condition.
+// ++++ 2. .filter() returns a new array, .find() returns only the element itself & not an array
+
+console.log(accounts);
+
+const account = accounts.find(element => element.owner === 'Jessica Davis');
+console.log(account); // {owner: 'Jessica Davis', movements: Array(8), interestRate: 1.5, pin: 2222}
+
+// +++++++ doing the same with for...of loop?
+for (const acc of accounts) {
+  if (acc.owner === 'Jessica Davis') console.log(acc);
+}
