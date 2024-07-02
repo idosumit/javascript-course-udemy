@@ -479,8 +479,6 @@ console.log('maximum is:', max); // 3000
 // ================================== CODING CHALLENGE #2 ===================================
 // solution at: 11-Arrays-Bankist/starter/coding-challenge-2.js
 
-*/
-
 // ================================== TRANSFORMATION: CHAINING ALL THE METHODS => MAP, FILTER, REDUCE ===================================
 
 // example used:
@@ -533,3 +531,8 @@ const calcDisplaySummary = function (movements) {
   labelSumInterest.textContent = `${interest}€`;
 };
 calcDisplaySummary(account1.movements);
+
+*/
+
+// ================================== CODING CHALLENGE #3 ===================================
+// solution at: 11-Arrays-Bankist/starter/coding-challenge-3.js
