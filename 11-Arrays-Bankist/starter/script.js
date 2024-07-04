@@ -560,8 +560,6 @@ for (const acc of accounts) {
   if (acc.owner === 'Jessica Davis') console.log(acc);
 }
 
-*/
-
 // ================================== THE FIND INDEX METHOD ===================================
 let currentAccount;
 console.log(accounts);
@@ -580,3 +578,26 @@ btnClose.addEventListener('click', function (e) {
     // accounts.splice(index, 1);
   }
 });
+
+*/
+
+// ================================== SOME AND EVERY METHODS ===================================
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+console.log(movements);
+
+// checks only the equality
+console.log(movements.includes(-130));
+
+// ++++++++ some condition - checks the condition
+const anyDeposits = movements.some(mov => mov > 0);
+console.log(anyDeposits);
+
+// ++++++++ every method: all the elements have to satisfy the condition
+console.log(movements.every(mov => mov > 0)); // false
+console.log(account4.movements.every(mov => mov > 0)); // false
+
+// ++++ separate callback
+const deposit = mov => mov > 0;
+console.log(movements.some(deposit)); // true
+console.log(movements.every(deposit)); // false
+console.log(movements.filter(deposit)); // [200, 450, 3000, 70, 1300]
