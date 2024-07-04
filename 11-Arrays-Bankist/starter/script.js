@@ -292,6 +292,7 @@ const createUsernames = function (user) {
 
 console.log(createUsernames('Steven Thomas Williams')); // stw
 
+*/
 // +++++++++++ using for...each method because we do NOT want to create a new array but want to modify the array we'll receive as the input (basically side effects)
 
 // example used (from the top):
@@ -308,6 +309,8 @@ const createUsernamesForAccounts = function (accs) {
 };
 
 createUsernamesForAccounts(accounts);
+
+/*
 console.log(accounts); // Result below (username property got added to the original accounts array)
 // [
 //   {
@@ -535,8 +538,6 @@ calcDisplaySummary(account1.movements);
 // ================================== CODING CHALLENGE #3 ===================================
 // solution at: 11-Arrays-Bankist/starter/coding-challenge-3.js
 
-*/
-
 // ================================== THE FIND METHOD ===================================
 // example used:
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
@@ -558,3 +559,24 @@ console.log(account); // {owner: 'Jessica Davis', movements: Array(8), interestR
 for (const acc of accounts) {
   if (acc.owner === 'Jessica Davis') console.log(acc);
 }
+
+*/
+
+// ================================== THE FIND INDEX METHOD ===================================
+let currentAccount;
+console.log(accounts);
+
+btnClose.addEventListener('click', function (e) {
+  e.preventDefault();
+  // checking if both the user and the pin are correct
+  if (
+    inputCloseUsername.value === currentAccount.username &&
+    Number(inputClosePin.value) === currentAccount.pin
+  ) {
+    const index = accounts.findIndex(
+      acc => acc.username === currentAccount.username
+    );
+    console.log(index);
+    // accounts.splice(index, 1);
+  }
+});
