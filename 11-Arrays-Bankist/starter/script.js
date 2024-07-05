@@ -579,8 +579,6 @@ btnClose.addEventListener('click', function (e) {
   }
 });
 
-*/
-
 // ================================== SOME AND EVERY METHODS ===================================
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 console.log(movements);
@@ -601,3 +599,43 @@ const deposit = mov => mov > 0;
 console.log(movements.some(deposit)); // true
 console.log(movements.every(deposit)); // false
 console.log(movements.filter(deposit)); // [200, 450, 3000, 70, 1300]
+
+*/
+
+// ================================== FLAT AND FLATMAP METHODS ===================================
+
+// +++++++++ flat = flatten (only goes 1 level deep in flattening)
+const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+console.log(arr.flat()); // [1, 2, 3, 4, 5, 6, 7, 8]
+
+const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+console.log(arrDeep.flat()); // [Array(2), 3, 4, Array(2), 7, 8]
+
+// ++++ for going deeper than 1 level, we can add parameters inside flat
+console.log(arrDeep.flat(2)); // [1, 2, 3, 4, 5, 6, 7, 8]
+
+// ++++ using flat to add every account movements into a single array
+// const accountMovements = accounts.map(acc => acc.movements);
+// console.log(accountMovements); // creates a nested structure
+// const allMovements = accountMovements.flat();
+// console.log(allMovements); // [200, 450, -400, 3000, -650, -130, 70, 1300, 5000, 3400, -150, -790, -3210, -1000, 8500, -30, 200, -200, 340, -300, -20, 50, 400, -460, 430, 1000, 700, 50, 90]
+
+// // ++++ adding them all together
+// const overallBalance = allMovements.reduce((acc, element) => acc + element, 0);
+// console.log(overallBalance); // 17840
+
+// +++++ how about all of this with chaining?
+const overallBalance = accounts
+  .map(acc => acc.movements)
+  .flat()
+  .reduce((acc, element) => acc + element, 0);
+console.log(overallBalance); // 17840
+
+// +++++++++++++++++++ flatMap method combines .flat() and .map()
+// ++++ doing the above example again with flatMap
+const overallBalance2 = accounts
+  .flatMap(acc => acc.movements)
+  .reduce((acc, element) => acc + element, 0);
+console.log(overallBalance2); // 17840
+
+// Notes on flatMap & flat at: https://notes.idosumit.com/programming/JavaScript/flat-and-flatMap-methods
