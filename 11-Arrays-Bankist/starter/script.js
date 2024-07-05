@@ -684,8 +684,6 @@ console.log(`Descending: ${movements}`);
 
 // notes for the above at: https://notes.idosumit.com/programming/JavaScript/Sorting-in-JavaScript/
 
-*/
-
 // ================================== MORE WAYS OF CREATING AND FILLING ARRAYS ===================================
 
 const x = new Array(7);
@@ -741,3 +739,63 @@ labelBalance.addEventListener('click', function () {
     movementsUI2.map(element => element.textContent.replace('€', ''))
   );
 });
+
+*/
+
+// ========================= Which array method to use? =========================
+// ++++++++++++++ to mutate the original array
+// ==== add to original array
+// .push() - add to the end
+// .unshift() - add to the beginning
+
+// ==== remove from original array
+// .pop() - remove from the end
+// .shift() - remove from the beginning
+// .splice() - remove from anywhere
+
+// ==== others
+// .reverse() - reverse the array
+// .sort() - sort the array
+// .fill() - fill the array with a certain value
+
+// ++++++++++++++ to create a new array
+// ==== with the original array
+// .map() - transform the array
+// .filter() - filter the array
+// .slice() - slice the array
+// .concat() - merge two arrays
+// .flat() - flatten the array
+// .flatMap() - map and then flatten
+
+// ++++++++++++++ with an array index
+// ==== based on value
+// .indexOf() - find index of an element
+
+// ==== based on test condition
+// .findIndex() - find index of an element
+
+// ++++++++++++++ with an array element
+// ==== based on test condition
+// .find() - find an element
+
+// ++++++++++++++ to know if array includes something
+// ==== based on value
+// .includes() - includes an element
+
+// ==== based on test condition
+// .some() - if at least one element satisfies the condition
+// .every() - if all elements satisfy the condition
+
+// ++++++++++++++ with a new string
+// ==== based on the separator string
+// .join() - join the array into a string
+
+// ++++++++++++++ to transform the value
+// ==== based on the accumulator
+// .reduce() - reduce the array to a single value
+
+// ++++++++++++++ to loop over the array
+// ==== based on callback
+// .forEach() - loop over the array (does not create a new array)
+
+// illustrated table at: helpful-illustrations/which-array-method-to-use.png
