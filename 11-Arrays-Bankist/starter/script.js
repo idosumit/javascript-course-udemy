@@ -740,8 +740,6 @@ labelBalance.addEventListener('click', function () {
   );
 });
 
-*/
-
 // ========================= Which array method to use? =========================
 // ++++++++++++++ to mutate the original array
 // ==== add to original array
@@ -799,3 +797,66 @@ labelBalance.addEventListener('click', function () {
 // .forEach() - loop over the array (does not create a new array)
 
 // illustrated table at: helpful-illustrations/which-array-method-to-use.png
+
+*/
+
+// ================================== ARRAY METHODS PRACTICE ===================================
+
+// 1.
+const bankDepositSum = accounts
+  .flatMap(element => element.movements)
+  .filter(element => element > 0)
+  .reduce((sum, currElement) => sum + currElement, 0);
+
+console.log(bankDepositSum); // 25180
+
+// 2.
+// const numDeposits1000 = accounts
+//   .flatMap(element => element.movements)
+//   .filter(element => element >= 1000);
+// console.log(numDeposits1000); // [3000, 1300, 5000, 1000, 3400, 8500]
+
+// we could also do:
+const numDeposits1000 = accounts
+  .flatMap(element => element.movements)
+  .reduce(
+    (count1000, currElement) => (currElement >= 1000 ? ++count1000 : count1000),
+    0
+  );
+
+console.log(numDeposits1000); // 6
+
+// 3.
+// create a new object with .reduce()
+const { deposits, withdrawals } = accounts
+  .flatMap(element => element.movements)
+  .reduce(
+    (sums, currElement) => {
+      // currElement > 0
+      //   ? (sums.deposits += currElement)
+      //   : (sums.withdrawals += currElement);
+      sums[currElement > 0 ? 'deposits' : 'withdrawals'] += currElement;
+
+      return sums;
+    },
+    { deposits: 0, withdrawals: 0 }
+  );
+
+console.log(deposits, withdrawals);
+
+// 4.
+// "this is a nice title" -> "This Is a Nice Title"
+const convertTitleCase = function (title) {
+  const capitalize = str => str[0].toUpperCase() + str.slice(1);
+  const exceptions = ['a', 'an', 'and', 'the', 'but', 'or', 'on', 'in', 'with'];
+  const titleCase = title
+    .toLowerCase()
+    .split(' ')
+    .map(word => (exceptions.includes(word) ? word : capitalize(word)))
+    .join(' ');
+  return capitalize(titleCase);
+};
+
+console.log(convertTitleCase('this is a nice title'));
+console.log(convertTitleCase('this is a LONG title but not too long'));
+console.log(convertTitleCase('and here is ANOTHER!'));
