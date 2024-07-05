@@ -638,8 +638,6 @@ console.log(overallBalance2); // 17840
 
 // Notes on flatMap & flat at: https://notes.idosumit.com/programming/JavaScript/flat-and-flatMap-methods
 
-*/
-
 // ================================== SORTING ARRAYS ===================================
 
 // +++++++++++++ built-in sort method
@@ -685,3 +683,61 @@ console.log(`Descending: ${movements}`);
 // if there is a mixed array, sort method is not advised.
 
 // notes for the above at: https://notes.idosumit.com/programming/JavaScript/Sorting-in-JavaScript/
+
+*/
+
+// ================================== MORE WAYS OF CREATING AND FILLING ARRAYS ===================================
+
+const x = new Array(7);
+console.log(x); // empty array with length 7
+
+// let's say we want to fill this empty array of x
+console.log(x.map(() => 5)); // empty still, doesn't work
+
+// +++++++++++++ what we can do is the fill method
+// x.fill(1);
+// console.log(x); // [1, 1, 1, 1, 1, 1, 1]
+// mutates x
+
+// +++ extending the fill method
+x.fill(1, 3, 5); // fill with 1, start at index 3 and end at index 5
+console.log(x); // [empty × 3, 1, 1, empty × 2]
+
+// +++ taking it further
+const arr = [1, 2, 3, 4, 5, 6, 7];
+arr.fill(23, 2, 6); // fill with 23, start at index 2 and end at index 6
+console.log(arr); // [1, 2, 23, 23, 23, 23, 7]
+
+// ++++++++ Creating arrays programmatically
+// ====== Array from method
+const y = Array.from({ length: 7 }, () => 1);
+console.log(y); // [1, 1, 1, 1, 1, 1, 1]
+
+const z = Array.from({ length: 7 }, (_, index) => index + 1);
+console.log(z); // [1, 2, 3, 4, 5, 6, 7]
+
+// array with 100 random dice rolls
+const hundredDiceRolls = Array.from({ length: 100 }, (_, index) => {
+  let randNum = Math.random() * 6;
+  return randNum < 1 ? Math.ceil(randNum) : Math.round(randNum);
+});
+
+console.log(hundredDiceRolls);
+
+// ++++++++++ Real-life examples
+// +++ getting movements from the UI directly
+
+labelBalance.addEventListener('click', function () {
+  const movementsUI = Array.from(
+    document.querySelectorAll('.movements__value'),
+    element => element.textContent.replace('€', '')
+  );
+
+  console.log(movementsUI);
+
+  // the following method also works but is a bit めんどくさい
+  const movementsUI2 = [...document.querySelectorAll('.movements__value')];
+  console.log(
+    movementsUI2.map(element => element.textContent.replace('€', ''))
+  );
+});
