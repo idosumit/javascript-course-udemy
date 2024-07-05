@@ -600,8 +600,6 @@ console.log(movements.some(deposit)); // true
 console.log(movements.every(deposit)); // false
 console.log(movements.filter(deposit)); // [200, 450, 3000, 70, 1300]
 
-*/
-
 // ================================== FLAT AND FLATMAP METHODS ===================================
 
 // +++++++++ flat = flatten (only goes 1 level deep in flattening)
@@ -639,3 +637,51 @@ const overallBalance2 = accounts
 console.log(overallBalance2); // 17840
 
 // Notes on flatMap & flat at: https://notes.idosumit.com/programming/JavaScript/flat-and-flatMap-methods
+
+*/
+
+// ================================== SORTING ARRAYS ===================================
+
+// +++++++++++++ built-in sort method
+// +++ with strings
+const owners = ['Charles', 'Ernie', 'Kenny', 'Shaq', 'Draymond'];
+console.log(owners.sort()); // ['Charles', 'Draymond', 'Ernie', 'Kenny', 'Shaq']
+console.log(owners); // // ['Charles', 'Draymond', 'Ernie', 'Kenny', 'Shaq']
+
+// +++ with numbers
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+console.log(movements.sort()); // [-130, -400, -650, 1300, 200, 3000, 450, 70] (weird...)
+
+// ===== NOTE:
+// The .sort() method does the sorting based on strings.
+
+// ++++ So, how do we fix this sorting with numbers??? Let's do this:
+// If we return something < 0, A will be before B (keep order)
+// If we return something > 0, B will be before A (switch order)
+
+// Ascending
+movements.sort((a, b) => {
+  if (a > b) return 1; // number doesn't matter as long as it's > 0, but why?
+  if (a < b) return -1;
+});
+
+console.log(movements); // here it's being mutated
+// cleaner way
+movements.sort((a, b) => a - b);
+console.log(`Ascending: ${movements}`);
+
+// Descending
+movements.sort((a, b) => {
+  if (a > b) return -1;
+  if (a < b) return 1;
+});
+
+console.log(movements); // being mutated
+
+// cleaner way
+movements.sort((a, b) => b - a);
+console.log(`Descending: ${movements}`);
+
+// if there is a mixed array, sort method is not advised.
+
+// notes for the above at: https://notes.idosumit.com/programming/JavaScript/Sorting-in-JavaScript/
