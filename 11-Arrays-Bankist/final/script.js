@@ -743,7 +743,6 @@ const dogs = [
 ];
 
 GOOD LUCK 😀
-*/
 
 /*
 const dogs = [
@@ -801,3 +800,6 @@ console.log(dogs.filter(checkEatingOkay));
 const dogsSorted = dogs.slice().sort((a, b) => a.recFood - b.recFood);
 console.log(dogsSorted);
 */
+
+// ======================================== CODING CHALLENGE #4 ========================================
+// Solution at: 11-Arrays-Bankist/starter/coding-challenge-4.js
