@@ -370,8 +370,6 @@ console.log(10n / 3n); // 3n, decimals are cut off
 console.log(11n / 3n); // 3n, decimals are cut off
 console.log(12n / 3n); // 4n
 
-*/
-
 // ======================== CREATING DATES ========================
 // ++++++++++++ create a date
 // ==== way 1
@@ -390,3 +388,16 @@ console.log(new Date(2024, 7, 12, 14, 4, 44)); // Fri Aug 12 2024 14:04:44 GMT+0
 // ==== way 3
 console.log(new Date(0)); // Thu Jan 01 1970 09:00:00 GMT+0900 (Japan Standard Time) => this is the Unix time, the 0th second of 1970
 console.log(new Date(3 * 24 * 60 * 60 * 1000)); // Sun Jan 04 1970 09:00:00 GMT+0900 (Japan Standard Time) => 3 days after the Unix time
+
+*/
+
+// ======================== SETTIMEOUT AND SETINTERVAL ========================
+const types = ['latte', 'americano'];
+const coffeeTimer = setTimeout(
+  (ing1, ing2) => console.log(`Here are your coffees: ${ing1} and ${ing2}.`),
+  3000,
+  ...types
+);
+console.log('Waiting...');
+
+if (types.includes('americano')) clearTimeout(coffeeTimer);
