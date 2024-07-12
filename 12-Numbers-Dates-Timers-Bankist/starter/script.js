@@ -323,8 +323,6 @@ console.log(8 % 3); // 2
 const fnForOddOrEvenCalc = number => (number % 2 === 0 ? 'Even' : 'Odd');
 console.log(fnForOddOrEvenCalc(3643));
 
-*/
-
 // ======================== NUMERIC SEPARATORS ========================
 
 const diameter = 287_460_000_000;
@@ -338,3 +336,38 @@ const transferFee = 15_00;
 // const PI = 3._1415; // not allowed
 
 console.log(Number('230_000')); // NaN
+
+*/
+
+// ======================== BIG INT ========================
+console.log(2 ** 53 - 1); // 9007199254740991 => this is the limit
+console.log(Number.MAX_SAFE_INTEGER); // 9007199254740991
+
+console.log(3409865039609857094889079); // 3.409865039609857e+24, probably not correct since precision is lost
+
+// so we could do this:
+console.log(3409865039609857094889079n); // 3409865039609857094889079n
+
+// OR just by using the BigInt() function:
+console.log(BigInt(3409865039609857094889079)); // 3409865039609856838860800n => this looks a bit different than the one above though, why? Maybe we should use BigInt() only with smaller numbers
+
+// ++++++++++ Operations with these numbers
+console.log(100000n + 100000n); // 200000n
+console.log(23509808957604302836095804897349806953n * 1000000000000n); // 23509808957604302836095804897349806953000000000n
+// console.log(Math.sqrt(16n)); // error, doesn't work with BigInt
+
+const huge = 23509808957604302836095804897349806953n;
+const num = 23;
+console.log(huge * BigInt(num)); // 541275021006099658410032517849696593719n
+
+console.log(20n > 5); // true
+console.log(20n === 20); // false
+console.log(typeof 20n); // bigint
+console.log(20n == 20); // true
+console.log(20n == '20'); // true
+
+console.log(huge + ' is really BIG!'); // 23509808957604302836095804897349806953 is really BIG!
+
+console.log(10n / 3n); // 3n, decimals are cut off
+console.log(11n / 3n); // 3n, decimals are cut off
+console.log(12n / 3n); // 4n
