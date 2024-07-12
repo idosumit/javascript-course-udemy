@@ -251,3 +251,30 @@ btnSort.addEventListener('click', function (e) {
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
+
+// ======================== CONVERTING & CHECKING NUMBERS ========================
+
+console.log(23 === 23.0);
+
+//++++++++ Conversion
+console.log(Number('23'));
+// OR:
+console.log(+'23');
+
+//++++++++ Parsing (a number from a string)
+console.log(Number.parseInt('30px')); // 30 (string has to start with a num)
+console.log(Number.parseInt('e23')); // NaN
+
+console.log(Number.parseInt('30px', 10)); // explicitly saying it's an integer with the base 10
+
+console.log(Number.parseFloat('2.5rem')); // 2.5
+
+console.log(Number.isNaN(20)); // false
+console.log(Number.isNaN('20')); // false
+console.log(Number.isNaN(+'20x')); // true
+
+// ++++++++ a better way to determine if number or not
+console.log(Number.isFinite(20)); // true
+console.log(Number.isFinite('20')); // false
+console.log(Number.isFinite(+'20x')); // false
+console.log(Number.isFinite(23 / 0)); // false
