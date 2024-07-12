@@ -337,8 +337,6 @@ const transferFee = 15_00;
 
 console.log(Number('230_000')); // NaN
 
-*/
-
 // ======================== BIG INT ========================
 console.log(2 ** 53 - 1); // 9007199254740991 => this is the limit
 console.log(Number.MAX_SAFE_INTEGER); // 9007199254740991
@@ -371,3 +369,24 @@ console.log(huge + ' is really BIG!'); // 23509808957604302836095804897349806953
 console.log(10n / 3n); // 3n, decimals are cut off
 console.log(11n / 3n); // 3n, decimals are cut off
 console.log(12n / 3n); // 4n
+
+*/
+
+// ======================== CREATING DATES ========================
+// ++++++++++++ create a date
+// ==== way 1
+const now = new Date();
+console.log(now); // Fri Jul 12 2024 11:24:43 GMT+0900 (Japan Standard Time)
+
+// ==== way 2
+console.log(new Date('Jul 12 2024, 14: 00')); // Fri Jul 12 2024 00:00:00 GMT+0900 (Japan Standard Time)
+// javascript automatically understands and logs the date & time
+console.log(new Date('Aug 26, 2001')); // Sun Aug 26 2001 00:00:00 GMT+0900 (Japan Standard Time)
+
+console.log(new Date(account1.movementsDates[0])); //  Tue Nov 19 2019 06:31:17 GMT+0900 (Japan Standard Time)
+
+console.log(new Date(2024, 7, 12, 14, 4, 44)); // Fri Aug 12 2024 14:04:44 GMT+0900 (Japan Standard Time)
+
+// ==== way 3
+console.log(new Date(0)); // Thu Jan 01 1970 09:00:00 GMT+0900 (Japan Standard Time) => this is the Unix time, the 0th second of 1970
+console.log(new Date(3 * 24 * 60 * 60 * 1000)); // Sun Jan 04 1970 09:00:00 GMT+0900 (Japan Standard Time) => 3 days after the Unix time
