@@ -280,8 +280,6 @@ console.log(Number.isFinite('20')); // false
 console.log(Number.isFinite(+'20x')); // false
 console.log(Number.isFinite(23 / 0)); // false
 
-*/
-
 // ======================== MATH & ROUNDING ========================
 console.log(Math.sqrt(25)); // 5
 console.log(25 ** (1 / 2)); // 5
@@ -314,3 +312,15 @@ console.log((2.7).toFixed(0)); // 3 (a string btw)
 console.log((2.7).toFixed(3)); // 2.700
 console.log((2.345).toFixed(2)); // 2.35
 console.log(+(2.345).toFixed(2)); // 2.35 (a number!)
+
+*/
+
+// ======================== THE REMAINDER OPERATOR ========================
+console.log(5 % 2); // 1
+console.log(5 / 2); // 2.5
+
+console.log(8 % 3); // 2
+
+// ++++++ function that gives us odd or even
+const fnForOddOrEvenCalc = number => (number % 2 === 0 ? 'Even' : 'Odd');
+console.log(fnForOddOrEvenCalc(3643));
