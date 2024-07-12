@@ -252,6 +252,7 @@ btnSort.addEventListener('click', function (e) {
 /////////////////////////////////////////////////
 // LECTURES
 
+/*
 // ======================== CONVERTING & CHECKING NUMBERS ========================
 
 console.log(23 === 23.0);
@@ -278,3 +279,38 @@ console.log(Number.isFinite(20)); // true
 console.log(Number.isFinite('20')); // false
 console.log(Number.isFinite(+'20x')); // false
 console.log(Number.isFinite(23 / 0)); // false
+
+*/
+
+// ======================== MATH & ROUNDING ========================
+console.log(Math.sqrt(25)); // 5
+console.log(25 ** (1 / 2)); // 5
+
+console.log(Math.max(5, 18, 23, 11, 2)); // 23
+console.log(Math.max(5, 18, '23', 11, 2)); // 23
+console.log(Math.max(5, 18, '23px', 11, 2)); // NaN
+
+console.log(Math.min(5, 18, 23, 11, 2)); // 2
+
+//++++++ Area of a circle (pi * r^2)
+console.log(Math.PI * Number.parseFloat('10px') ** 2);
+
+//++++++ Random number generation
+const randomInt = (min, max) =>
+  Math.trunc(Math.random() * (max - min) + 1) + min;
+
+// OR
+const randomIntWithRound = (min, max) =>
+  Math.round(Math.random() * (max - min) + min);
+
+console.log(randomInt(5, 10));
+console.log(randomIntWithRound(5, 10));
+
+//++++++ Rounding integers
+console.log(Math.round(2.6));
+
+// +++++ Rounding floating point numbers
+console.log((2.7).toFixed(0)); // 3 (a string btw)
+console.log((2.7).toFixed(3)); // 2.700
+console.log((2.345).toFixed(2)); // 2.35
+console.log(+(2.345).toFixed(2)); // 2.35 (a number!)
