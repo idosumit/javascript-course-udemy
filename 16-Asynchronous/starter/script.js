@@ -164,8 +164,6 @@ const getCountryDataSimplified = country => {
 
 getCountryDataSimplified('burkina faso');
 
-*/
-
 // ++++++++++++++++++++++++++++ CHAINING PROMISES TO A NEW LEVEL
 
 // const getCountryData = country => {
@@ -220,4 +218,89 @@ const getCountryData = country => {
 
 btn.addEventListener('click', () => {
   getCountryData('azerbaijan');
+});
+*/
+
+// +++++++++++++++++++++++++ THROWING ERRORS MANUALLY
+// when we throw an error in a promise, the promise is rejected and the catch method is called. however in the case of a 404 error, the promise is not rejected, so we have to throw the error manually.
+
+const renderError = msg => {
+  countriesContainer.insertAdjacentText('beforeend', msg);
+  // countriesContainer.style.opacity = 1;
+};
+
+const getJSON = (url, errorMsg = 'Something went wrong') => {
+  return fetch(url).then(response => {
+    // creating our own static error
+    if (!response.ok) throw new Error(`${errorMsg} (${response.status})`);
+
+    return response.json();
+  });
+};
+
+// const getCountryData = country => {
+//   // country 1
+//   fetch(`https://restcountries.com/v3.1/name/${country}?fullText=true`)
+//     .then(response => {
+//       console.log(response);
+//       // creating our own static error
+//       if (!response.ok)
+//         throw new Error(`Country not found (${response.status})`);
+
+//       return response.json();
+//     })
+//     .then(data => {
+//       renderCountry(data[0]);
+//       const neighbour = data[0].borders[0];
+
+//       if (!neighbour) return;
+
+//       // country 2
+//       return fetch(`https://restcountries.com/v3.1/alpha/${neighbour}`); // the value returned here is the fulfilled value of the promise
+//     })
+//     .then(response => {
+//       if (!response.ok)
+//         throw new Error(`Country not found (${response.status})`);
+//       return response.json();
+//     })
+//     .then(data => renderCountry(data[0], 'neighbour'))
+//     .catch(err => {
+//       console.log(`${err} ‼️ error!`);
+//       renderError(`Something went wrong ⛔️ ${err.message}. Try again`);
+//     })
+//     .finally(() => {
+//       countriesContainer.style.opacity = 1;
+//     });
+// };
+
+const getCountryData = country => {
+  // country 1
+  getJSON(
+    `https://restcountries.com/v3.1/name/${country}?fullText=true`,
+    'Country Not Found'
+  )
+    .then(data => {
+      renderCountry(data[0]);
+      const neighbour = data[0].borders[0];
+
+      if (!neighbour) throw new Error('No neighbouring nation found');
+
+      // country 2
+      return getJSON(
+        `https://restcountries.com/v3.1/alpha/${neighbour}`,
+        'Country Not Found'
+      ); // the value returned here is the fulfilled value of the promise
+    })
+    .then(data => renderCountry(data[0], 'neighbour'))
+    .catch(err => {
+      console.log(`${err} ‼️ error!`);
+      renderError(`Something went wrong ⛔️ ${err.message}. Try again`);
+    })
+    .finally(() => {
+      countriesContainer.style.opacity = 1;
+    });
+};
+
+btn.addEventListener('click', () => {
+  getCountryData('china');
 });
