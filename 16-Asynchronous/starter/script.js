@@ -167,24 +167,57 @@ getCountryDataSimplified('burkina faso');
 */
 
 // ++++++++++++++++++++++++++++ CHAINING PROMISES TO A NEW LEVEL
-const getCountryData = country => {
-  // country 1
-  fetch(`https://restcountries.com/v3.1/name/${country}?fullText=true`).then(
-    response =>
-      response
-        .json()
-        .then(data => {
-          renderCountry(data[0]);
-          const neighbour = data[0].borders[0];
 
-          if (!neighbour) return;
+// const getCountryData = country => {
+//   // country 1
+//   fetch(`https://restcountries.com/v3.1/name/${country}?fullText=true`)
+//     .then(response => response.json())
+//     .then(data => {
+//       renderCountry(data[0]);
+//       const neighbour = data[0].borders[0];
 
-          // country 2
-          return fetch(`https://restcountries.com/v3.1/alpha/${neighbour}`); // the value returned here is the fulfilled value of the promise
-        })
-        .then(response => response.json())
-        .then(data => renderCountry(data[0], 'neighbour'))
-  );
+//       if (!neighbour) return;
+
+//       // country 2
+//       return fetch(`https://restcountries.com/v3.1/alpha/${neighbour}`); // the value returned here is the fulfilled value of the promise
+//     })
+//     .then(response => response.json())
+//     .then(data => renderCountry(data[0], 'neighbour'))
+// };
+
+// // getCountryData('burkina faso');
+
+// ++++++++++++++++++++++++++++ HANDLING PROMISE REJECTIONS
+
+const renderError = msg => {
+  countriesContainer.insertAdjacentText('beforeend', msg);
+  // countriesContainer.style.opacity = 1;
 };
 
-getCountryData('burkina faso');
+const getCountryData = country => {
+  // country 1
+  fetch(`https://restcountries.com/v3.1/name/${country}?fullText=true`)
+    .then(response => response.json())
+    .then(data => {
+      renderCountry(data[0]);
+      const neighbour = data[0].borders[0];
+
+      if (!neighbour) return;
+
+      // country 2
+      return fetch(`https://restcountries.com/v3.1/alpha/${neighbour}`); // the value returned here is the fulfilled value of the promise
+    })
+    .then(response => response.json())
+    .then(data => renderCountry(data[0], 'neighbour'))
+    .catch(err => {
+      console.log(`${err} ‼️ error!`);
+      renderError(`Something went wrong ⛔️ ${err.message}. Try again`);
+    })
+    .finally(() => {
+      countriesContainer.style.opacity = 1;
+    });
+};
+
+btn.addEventListener('click', () => {
+  getCountryData('azerbaijan');
+});
