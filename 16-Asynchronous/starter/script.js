@@ -128,8 +128,6 @@ getCountryAndNeighbour('portugal');
 
 // But what if we needed the neighbour of the neighbour of the neighbour and so on? We would have to do asynchronous calls inside asynchronous calls inside asynchronous calls, and this is what we call callback hell. AJAX calls inside AJAX calls inside AJAX calls, and this is a real problem in JavaScript. It's a problem because it makes our code really hard to read and to maintain. And this is why we have promises and async/await. Will study this plus promises soon.
 
-*/
-
 // ============================================ PROMISES AND THE FETCH API ============================================
 
 // ++++++++++++++++++++++++++++ CONSUMING PROMISES
@@ -165,3 +163,28 @@ const getCountryDataSimplified = country => {
 };
 
 getCountryDataSimplified('burkina faso');
+
+*/
+
+// ++++++++++++++++++++++++++++ CHAINING PROMISES TO A NEW LEVEL
+const getCountryData = country => {
+  // country 1
+  fetch(`https://restcountries.com/v3.1/name/${country}?fullText=true`).then(
+    response =>
+      response
+        .json()
+        .then(data => {
+          renderCountry(data[0]);
+          const neighbour = data[0].borders[0];
+
+          if (!neighbour) return;
+
+          // country 2
+          return fetch(`https://restcountries.com/v3.1/alpha/${neighbour}`); // the value returned here is the fulfilled value of the promise
+        })
+        .then(response => response.json())
+        .then(data => renderCountry(data[0], 'neighbour'))
+  );
+};
+
+getCountryData('burkina faso');
