@@ -88,6 +88,8 @@ const renderCountry = function (data, className = '') {
   countriesContainer.style.opacity = 1;
 };
 
+/*
+
 const getCountryAndNeighbour = country => {
   // AJAX call country 1
   const request = new XMLHttpRequest();
@@ -125,3 +127,41 @@ const getCountryAndNeighbour = country => {
 getCountryAndNeighbour('portugal');
 
 // But what if we needed the neighbour of the neighbour of the neighbour and so on? We would have to do asynchronous calls inside asynchronous calls inside asynchronous calls, and this is what we call callback hell. AJAX calls inside AJAX calls inside AJAX calls, and this is a real problem in JavaScript. It's a problem because it makes our code really hard to read and to maintain. And this is why we have promises and async/await. Will study this plus promises soon.
+
+*/
+
+// ============================================ PROMISES AND THE FETCH API ============================================
+
+// ++++++++++++++++++++++++++++ CONSUMING PROMISES
+// consuming promises returned by the fetch function, basically
+
+const request = fetch(
+  'https://restcountries.com/v3.1/name/portugal?fullText=true'
+);
+console.log(request); // Promise {<pending>}
+
+const getCountryData = country => {
+  fetch(`https://restcountries.com/v3.1/name/${country}?fullText=true`) // this returns a promise
+    .then(response => {
+      // handle the promise with then method
+      console.log(response);
+      return response.json(); // this returns YET another promise
+    })
+    .then(data => {
+      // another then method to handle the promise returned by the json method
+      console.log(data);
+      renderCountry(data[0]); // this 0 is because the data we need is in the first position of the array (see console log for more info)
+    });
+};
+
+getCountryData('portugal');
+
+//+++++ Simplyfying it:
+
+const getCountryDataSimplified = country => {
+  fetch(`https://restcountries.com/v3.1/name/${country}?fullText=true`).then(
+    response => response.json().then(data => renderCountry(data[0]))
+  );
+};
+
+getCountryDataSimplified('burkina faso');
